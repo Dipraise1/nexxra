@@ -49,34 +49,33 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#020910', width: '100%', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div className="container-center" style={{ paddingTop: '4rem', paddingBottom: '2.5rem' }}>
+    <footer style={{ background: '#030710', width: '100%', position: 'relative' }}>
+      {/* Gradient top border */}
+      <div style={{
+        height: '1px',
+        background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.4), rgba(124,58,237,0.4), transparent)',
+      }} />
 
-        {/* Top grid */}
+      <div className="container-center" style={{ paddingTop: '4rem', paddingBottom: '2.5rem' }}>
         <div className="g-footer" style={{ marginBottom: '3rem' }}>
 
-          {/* Brand column */}
+          {/* Brand */}
           <div>
-            <div style={{ marginBottom: '1rem' }}>
+            <div style={{ marginBottom: '1.125rem' }}>
               <img
                 src="/logo-white.png"
                 alt="Nexxra Digital"
-                style={{ height: '36px', width: 'auto', opacity: 1, display: 'block' }}
+                style={{ height: '34px', width: 'auto', display: 'block', opacity: 0.9 }}
               />
             </div>
-
             <p style={{
               fontSize: '0.875rem',
-              color: 'rgba(241,245,249,0.35)',
-              lineHeight: 1.8,
-              maxWidth: '280px',
-              marginBottom: '1.5rem',
+              color: 'rgba(240,244,255,0.32)',
+              lineHeight: 1.85, maxWidth: '280px', marginBottom: '1.75rem',
             }}>
               Abuja-based tech company building digital products for Nigerian businesses.
               CAC registered. Three years and counting.
             </p>
-
-            {/* Socials */}
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               {socials.map((s) => (
                 <a
@@ -84,7 +83,7 @@ export default function Footer() {
                   href="#"
                   aria-label={s.label}
                   style={{
-                    width: '32px', height: '32px', borderRadius: '7px',
+                    width: '34px', height: '34px', borderRadius: '8px',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: 'rgba(255,255,255,0.04)',
                     border: '1px solid rgba(255,255,255,0.07)',
@@ -93,11 +92,13 @@ export default function Footer() {
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.color = '#fff';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(59,130,246,0.3)';
+                    e.currentTarget.style.background = 'rgba(59,130,246,0.08)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.color = 'rgba(255,255,255,0.28)';
                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
                   }}
                 >
                   {s.icon}
@@ -106,31 +107,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services column */}
+          {/* Services */}
           <div>
             <h4 style={{
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.14em',
-              color: 'rgba(255,255,255,0.22)',
-              marginBottom: '1.25rem',
+              fontSize: '0.65rem', fontWeight: 700,
+              textTransform: 'uppercase', letterSpacing: '0.12em',
+              color: 'rgba(255,255,255,0.22)', marginBottom: '1.25rem',
             }}>
               Services
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               {services.map((s) => (
                 <a
                   key={s}
                   href="#services"
                   style={{
-                    fontSize: '0.875rem',
-                    color: 'rgba(255,255,255,0.35)',
-                    textDecoration: 'none',
-                    transition: 'color 0.2s',
+                    fontSize: '0.875rem', color: 'rgba(255,255,255,0.32)',
+                    textDecoration: 'none', transition: 'color 0.2s',
                   }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.32)')}
                 >
                   {s}
                 </a>
@@ -138,19 +134,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact column */}
+          {/* Contact */}
           <div>
             <h4 style={{
-              fontSize: '0.65rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.14em',
-              color: 'rgba(255,255,255,0.22)',
-              marginBottom: '1.25rem',
+              fontSize: '0.65rem', fontWeight: 700,
+              textTransform: 'uppercase', letterSpacing: '0.12em',
+              color: 'rgba(255,255,255,0.22)', marginBottom: '1.25rem',
             }}>
               Contact
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
                 { label: 'Email', value: 'hello@nexxradigital.com' },
                 { label: 'Phone', value: '+234 800 NEXXRA' },
@@ -158,10 +151,14 @@ export default function Footer() {
                 { label: 'Hours', value: 'Mon–Fri · 8am–6pm' },
               ].map((item) => (
                 <div key={item.label}>
-                  <div style={{ fontSize: '0.625rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)', marginBottom: '0.125rem' }}>
+                  <div style={{
+                    fontSize: '0.625rem', fontWeight: 700,
+                    letterSpacing: '0.1em', textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.16)', marginBottom: '0.15rem',
+                  }}>
                     {item.label}
                   </div>
-                  <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.45)' }}>
+                  <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.42)' }}>
                     {item.value}
                   </div>
                 </div>
@@ -170,15 +167,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Bottom */}
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: '1.5rem' }} />
-
-        {/* Bottom bar */}
         <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          display: 'flex', flexWrap: 'wrap',
+          alignItems: 'center', justifyContent: 'space-between',
           gap: '0.75rem',
         }}>
           <p style={{ fontSize: '0.8125rem', color: 'rgba(255,255,255,0.18)' }}>
@@ -190,10 +183,8 @@ export default function Footer() {
                 key={item}
                 href="#"
                 style={{
-                  fontSize: '0.75rem',
-                  color: 'rgba(255,255,255,0.16)',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s',
+                  fontSize: '0.75rem', color: 'rgba(255,255,255,0.16)',
+                  textDecoration: 'none', transition: 'color 0.2s',
                 }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.16)')}
@@ -203,7 +194,6 @@ export default function Footer() {
             ))}
           </div>
         </div>
-
       </div>
     </footer>
   );

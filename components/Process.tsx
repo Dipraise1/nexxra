@@ -4,84 +4,67 @@ const steps = [
   { number: '03', title: 'Design', desc: 'We design your product first. You review and approve mockups before a single line of code is written.' },
   { number: '04', title: 'Development', desc: 'Our engineers build it. You get weekly progress updates and access to a staging environment throughout.' },
   { number: '05', title: 'Testing & QA', desc: 'We test across devices, browsers, and edge cases before anything goes live. No surprises after launch.' },
-  { number: '06', title: 'Launch & handover', desc: 'We deploy, train your team, and stay on for 30 days post-launch. After that, ongoing support is available.' },
+  { number: '06', title: 'Launch & handover', desc: 'We deploy, train your team, and stay on for 30 days post-launch. Ongoing support is available after that.' },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="sec" style={{ background: '#030712' }}>
+    <section id="process" className="sec" style={{ background: '#050814' }}>
       <div className="container-center">
-        <div style={{
-          display: 'grid',
-          gap: 'clamp(3rem, 6vw, 5rem)',
-          alignItems: 'start',
-        }}
-        className="g-2t"
-        >
-          {/* Left: heading + context */}
+        <div className="g-2t">
+
+          {/* Sticky left */}
           <div className="reveal" style={{ position: 'sticky', top: '8rem' }}>
+            <span className="sec-label">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4" /></svg>
+              How it works
+            </span>
             <h2 style={{
-              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
-              fontWeight: 800,
-              color: '#f1f5f9',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.1,
-              marginBottom: '1.25rem',
+              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              fontWeight: 700, color: '#f0f4ff',
+              letterSpacing: '-0.035em', lineHeight: 1.08, marginBottom: '1.25rem',
             }}>
-              How a project works
+              From first call<br />to launch — <span className="gradient-text">six steps.</span>
             </h2>
-            <p style={{ fontSize: '0.9375rem', color: 'rgba(241,245,249,0.5)', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '28rem' }}>
-              Six steps from first call to launch. The same process, every time — because it works.
+            <p style={{
+              fontSize: '1rem', color: 'rgba(240,244,255,0.5)',
+              lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '28rem',
+            }}>
+              The same disciplined process on every project. Predictable, transparent, and built to deliver.
             </p>
             <a href="#contact" className="btn-primary">
               Book a free call
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
 
-          {/* Right: numbered steps — no cards, clean text */}
+          {/* Steps */}
           <div className="reveal">
             {steps.map((step, i) => (
-              <div
-                key={step.number}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '2.5rem 1fr',
-                  gap: '1.25rem',
-                  paddingBottom: i < steps.length - 1 ? '2rem' : '0',
-                  marginBottom: i < steps.length - 1 ? '2rem' : '0',
-                  borderBottom: i < steps.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
-                }}
-              >
-                {/* Number */}
-                <div style={{
-                  fontSize: '0.6875rem',
-                  fontWeight: 700,
-                  color: 'rgba(96,165,250,0.7)',
-                  letterSpacing: '0.05em',
-                  paddingTop: '0.2rem',
-                  fontFamily: '"Fira Code", Consolas, monospace',
-                }}>
+              <div key={step.number} className="step-item">
+                {/* Step number circle */}
+                <div className="step-num">
                   {step.number}
                 </div>
 
                 {/* Content */}
-                <div>
+                <div style={{ paddingTop: '0.875rem' }}>
                   <h3 style={{
-                    fontSize: '0.9375rem',
-                    fontWeight: 700,
-                    color: '#f1f5f9',
-                    marginBottom: '0.375rem',
-                    letterSpacing: '-0.01em',
+                    fontSize: '1rem', fontWeight: 700, color: '#f0f4ff',
+                    marginBottom: '0.5rem', letterSpacing: '-0.015em',
                   }}>
                     {step.title}
                   </h3>
-                  <p style={{ fontSize: '0.8125rem', color: 'rgba(241,245,249,0.45)', lineHeight: 1.75 }}>
+                  <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.45)', lineHeight: 1.8 }}>
                     {step.desc}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
