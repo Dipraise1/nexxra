@@ -22,7 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -32,120 +31,95 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ─── Main nav bar ─── */}
       <header style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 100,
-        paddingTop: scrolled ? '0.875rem' : '1.5rem',
-        transition: 'padding 0.4s cubic-bezier(0.4,0,0.2,1)',
-        pointerEvents: 'none',
+        padding: scrolled ? '0.75rem 0' : '1.25rem 0',
+        background: scrolled ? 'rgba(5,8,20,0.85)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        transition: 'all 0.3s ease',
       }}>
         <div className="container-center" style={{
-          pointerEvents: 'auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '1rem',
         }}>
           {/* Logo */}
-          <a href="#" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0, zIndex: 110, position: 'relative' }}>
-            <img src="/logo-white.png" alt="Nexxra Digital" style={{ height: '34px', width: 'auto', display: 'block' }} />
+          <a href="#" onClick={closeMenu} style={{ flexShrink: 0, zIndex: 110, position: 'relative' }}>
+            <img src="/logo-white.png" alt="Nexxra Digital" style={{ height: '28px', width: 'auto', display: 'block' }} />
           </a>
 
-          {/* Center nav pill — desktop only */}
-          <div className="show-lg" style={{
-            background: scrolled ? 'rgba(5,8,20,0.92)' : 'rgba(255,255,255,0.04)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: `1px solid ${scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.08)'}`,
-            borderRadius: '9999px',
-            padding: '0 2rem',
-            height: '44px',
-            transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
-            boxShadow: scrolled ? '0 8px 40px rgba(0,0,0,0.4)' : 'none',
-            display: 'flex',
-            alignItems: 'center',
+          {/* Center links — desktop */}
+          <nav className="show-md" style={{
+            display: 'flex', alignItems: 'center', gap: '2.25rem',
           }}>
-            <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-              {links.map((l) => (
-                <a key={l.href} href={l.href} style={{
-                  fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.04em',
-                  color: 'rgba(255,255,255,0.5)', transition: 'color 0.2s',
-                  textDecoration: 'none', whiteSpace: 'nowrap',
-                }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
-                >
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+            {links.map((l) => (
+              <a key={l.href} href={l.href} style={{
+                fontSize: '0.8125rem', fontWeight: 500,
+                color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s',
+                textDecoration: 'none', whiteSpace: 'nowrap',
+              }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
 
-          {/* Right: CTA + hamburger */}
+          {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-            <div className="show-lg">
+            <div className="show-md">
               <a href="#contact" style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                height: '38px', padding: '0 1.125rem',
-                background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
-                color: '#fff', border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: '8px', fontSize: '0.8rem', fontWeight: 700,
-                letterSpacing: '0.02em', textDecoration: 'none',
-                transition: 'filter 0.2s, transform 0.18s, box-shadow 0.25s',
-                whiteSpace: 'nowrap',
+                height: '36px', padding: '0 1.25rem',
+                background: '#fff',
+                color: '#050814',
+                borderRadius: '8px', fontSize: '0.8125rem', fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'opacity 0.2s',
               }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.filter = 'brightness(1.15)';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.boxShadow = '0 6px 24px rgba(37,99,235,0.4)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.filter = 'none';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; }}
               >
                 Get Started
               </a>
             </div>
 
-            {/* Hamburger — mobile only */}
-            <div className="hide-lg">
+            {/* Hamburger — mobile */}
+            <div className="hide-md">
               <button
                 onClick={() => setMenuOpen(v => !v)}
                 aria-label="Toggle menu"
                 style={{
                   position: 'relative', zIndex: 110,
-                  background: menuOpen ? 'rgba(255,255,255,0.08)' : 'rgba(5,8,20,0.85)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: '10px',
+                  background: 'transparent',
+                  border: 'none',
                   width: '42px', height: '42px',
                   cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  flexDirection: 'column', gap: '5px',
-                  transition: 'background 0.3s, border-color 0.3s',
+                  flexDirection: 'column', gap: '6px',
                 }}
               >
                 <span style={{
-                  display: 'block', width: '18px', height: '1.5px',
+                  display: 'block', width: '20px', height: '1.5px',
                   background: '#fff', borderRadius: '1px',
-                  transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.2s',
-                  transform: menuOpen ? 'translateY(6.5px) rotate(45deg)' : 'none',
+                  transition: 'transform 0.3s ease, opacity 0.2s',
+                  transform: menuOpen ? 'translateY(7.5px) rotate(45deg)' : 'none',
                 }} />
                 <span style={{
-                  display: 'block', width: '18px', height: '1.5px',
+                  display: 'block', width: '20px', height: '1.5px',
                   background: '#fff', borderRadius: '1px',
                   transition: 'opacity 0.2s',
                   opacity: menuOpen ? 0 : 1,
                 }} />
                 <span style={{
-                  display: 'block', width: '18px', height: '1.5px',
+                  display: 'block', width: '20px', height: '1.5px',
                   background: '#fff', borderRadius: '1px',
-                  transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)',
-                  transform: menuOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
+                  transition: 'transform 0.3s ease',
+                  transform: menuOpen ? 'translateY(-7.5px) rotate(-45deg)' : 'none',
                 }} />
               </button>
             </div>
@@ -153,58 +127,26 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ─── Full-screen mobile overlay ─── */}
+      {/* ─── Mobile menu overlay ─── */}
       <div
         aria-hidden={!menuOpen}
         style={{
           position: 'fixed', inset: 0, zIndex: 105,
-          background: '#05080f',
+          background: '#050814',
           opacity: menuOpen ? 1 : 0,
-          transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1)',
+          transition: 'opacity 0.35s ease',
           pointerEvents: menuOpen ? 'auto' : 'none',
           display: 'flex', flexDirection: 'column',
-          overflow: 'hidden',
         }}
       >
-        {/* Left gradient bar */}
-        <div style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px',
-          background: 'linear-gradient(180deg, #2563eb 0%, #7c3aed 100%)',
-        }} />
+        {/* Top spacer to clear the header */}
+        <div style={{ height: '5rem', flexShrink: 0 }} />
 
-        {/* Background texture orbs */}
-        <div aria-hidden="true" style={{
-          position: 'absolute', top: '-20%', right: '-20%',
-          width: '70vw', height: '70vw',
-          background: 'radial-gradient(ellipse, rgba(37,99,235,0.08) 0%, transparent 65%)',
-          pointerEvents: 'none',
-        }} />
-        <div aria-hidden="true" style={{
-          position: 'absolute', bottom: '-10%', left: '10%',
-          width: '50vw', height: '50vw',
-          background: 'radial-gradient(ellipse, rgba(124,58,237,0.07) 0%, transparent 65%)',
-          pointerEvents: 'none',
-        }} />
-
-        {/* Top bar (logo + close — handled by hamburger) */}
-        <div style={{
-          padding: '1.5rem 2rem 0',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          flexShrink: 0,
-        }}>
-          <img src="/logo-white.png" alt="Nexxra Digital" style={{ height: '30px', width: 'auto', opacity: 0.7 }} />
-          <span style={{ fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.18)' }}>
-            Menu
-          </span>
-        </div>
-
-        {/* Navigation links */}
+        {/* Nav links */}
         <nav style={{
           flex: 1,
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          padding: '2rem 2rem',
-          gap: 0,
+          padding: '0 2rem',
         }}>
           {links.map((l, i) => (
             <a
@@ -212,49 +154,20 @@ export default function Navbar() {
               href={l.href}
               onClick={closeMenu}
               style={{
-                display: 'flex',
-                alignItems: 'baseline',
-                gap: '1.25rem',
-                padding: '1.1rem 0',
-                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                display: 'block',
+                padding: '1rem 0',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
                 textDecoration: 'none',
-                transition: 'opacity 0.2s',
-                // Staggered appear — handled by parent opacity transition
-                transitionDelay: menuOpen ? `${i * 0.04}s` : '0s',
+                fontSize: 'clamp(1.5rem, 6vw, 2.25rem)',
+                fontWeight: 600,
+                color: '#f0f4ff',
+                letterSpacing: '-0.02em',
+                transition: 'color 0.2s',
               }}
-              onMouseEnter={e => {
-                const txt = e.currentTarget.querySelector('.link-text') as HTMLElement | null;
-                if (txt) { txt.style.color = 'rgba(255,255,255,0.45)'; }
-              }}
-              onMouseLeave={e => {
-                const txt = e.currentTarget.querySelector('.link-text') as HTMLElement | null;
-                if (txt) { txt.style.color = '#f0f4ff'; }
-              }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'rgba(240,244,255,0.5)')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#f0f4ff')}
             >
-              <span style={{
-                fontSize: '0.6875rem', fontWeight: 700,
-                color: 'rgba(255,255,255,0.2)',
-                letterSpacing: '0.08em',
-                fontFamily: 'monospace',
-                flexShrink: 0,
-                paddingBottom: '0.2rem',
-              }}>
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span
-                className="link-text"
-                style={{
-                  fontSize: 'clamp(1.875rem, 8vw, 3rem)',
-                  fontWeight: 700,
-                  color: '#f0f4ff',
-                  letterSpacing: '-0.035em',
-                  lineHeight: 1.05,
-                  transition: 'color 0.2s',
-                  fontFamily: 'var(--font-heading)',
-                }}
-              >
-                {l.label}
-              </span>
+              {l.label}
             </a>
           ))}
         </nav>
@@ -263,7 +176,6 @@ export default function Navbar() {
         <div style={{
           padding: '1.5rem 2rem 3rem',
           flexShrink: 0,
-          borderTop: '1px solid rgba(255,255,255,0.05)',
         }}>
           <a
             href="#contact"
@@ -271,12 +183,12 @@ export default function Navbar() {
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               gap: '0.5rem',
-              width: '100%', padding: '1rem 1.5rem',
-              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
-              color: '#fff', borderRadius: '14px',
-              fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
-              border: '1px solid rgba(255,255,255,0.12)',
-              marginBottom: '1.25rem',
+              width: '100%', padding: '1rem',
+              background: '#fff',
+              color: '#050814',
+              borderRadius: '10px',
+              fontSize: '1rem', fontWeight: 600, textDecoration: 'none',
+              marginBottom: '1rem',
             }}
           >
             Start a project

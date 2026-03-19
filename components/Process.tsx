@@ -1,3 +1,5 @@
+'use client';
+
 const steps = [
   { number: '01', title: 'Discovery call', desc: 'We talk through your goals, timeline, and budget. No hard sell — just an honest conversation about whether we\'re the right fit.' },
   { number: '02', title: 'Proposal', desc: 'You get a written proposal within 48 hours: scope, timeline, cost, and the tech we\'ll use. Everything in plain language.' },
@@ -15,19 +17,25 @@ export default function Process() {
 
           {/* Sticky left */}
           <div className="reveal" style={{ position: 'sticky', top: '8rem' }}>
-            <span className="sec-label">
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4" /></svg>
+            <p style={{
+              fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
+              color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
+              textTransform: 'uppercase',
+            }}>
               How it works
-            </span>
+            </p>
             <h2 style={{
-              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              fontSize: 'clamp(2rem, 4.5vw, 3.25rem)',
               fontWeight: 700, color: '#f0f4ff',
               letterSpacing: '-0.035em', lineHeight: 1.08, marginBottom: '1.25rem',
             }}>
-              From first call<br />to launch — <span className="gradient-text">six steps.</span>
+              From first call<br />to launch — {' '}
+              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'rgba(240,244,255,0.35)' }}>
+                six steps.
+              </span>
             </h2>
             <p style={{
-              fontSize: '1rem', color: 'rgba(240,244,255,0.5)',
+              fontSize: '1rem', color: 'rgba(240,244,255,0.4)',
               lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '28rem',
             }}>
               The same disciplined process on every project. Predictable, transparent, and built to deliver.
@@ -42,22 +50,31 @@ export default function Process() {
 
           {/* Steps */}
           <div className="reveal">
-            {steps.map((step, i) => (
-              <div key={step.number} className="step-item">
-                {/* Step number circle */}
-                <div className="step-num">
+            {steps.map((step) => (
+              <div key={step.number} style={{
+                display: 'flex', gap: '1.5rem',
+                paddingBottom: '2.5rem',
+                paddingTop: '0.5rem',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                marginBottom: '0',
+              }}>
+                <span style={{
+                  fontSize: '0.75rem', fontWeight: 600,
+                  color: 'rgba(240,244,255,0.2)',
+                  fontFamily: 'monospace',
+                  flexShrink: 0,
+                  paddingTop: '0.25rem',
+                }}>
                   {step.number}
-                </div>
-
-                {/* Content */}
-                <div style={{ paddingTop: '0.875rem' }}>
+                </span>
+                <div>
                   <h3 style={{
                     fontSize: '1rem', fontWeight: 700, color: '#f0f4ff',
-                    marginBottom: '0.5rem', letterSpacing: '-0.015em',
+                    marginBottom: '0.5rem', letterSpacing: '-0.01em',
                   }}>
                     {step.title}
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.45)', lineHeight: 1.8 }}>
+                  <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.38)', lineHeight: 1.8, margin: 0 }}>
                     {step.desc}
                   </p>
                 </div>
