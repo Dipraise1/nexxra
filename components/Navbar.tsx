@@ -48,7 +48,7 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <a href="#" onClick={closeMenu} style={{ flexShrink: 0, zIndex: 110, position: 'relative' }}>
-            <img src="/logo-white.png" alt="Nexxra Digital" style={{ height: '28px', width: 'auto', display: 'block' }} />
+            <img src="/logo-black.png" alt="Nexxra Digital" style={{ height: '56px', width: 'auto', display: 'block' }} />
           </a>
 
           {/* Center links — desktop */}

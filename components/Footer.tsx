@@ -64,9 +64,9 @@ export default function Footer() {
           {/* Brand */}
           <div style={{ gridColumn: 'span 1' }}>
             <img
-              src="/logo-white.png"
+              src="/logo-black.png"
               alt="Nexxra Digital"
-              style={{ height: '24px', width: 'auto', display: 'block', opacity: 0.7, marginBottom: '1.25rem' }}
+              style={{ height: '48px', width: 'auto', display: 'block', opacity: 0.7, marginBottom: '1.25rem' }}
             />
             <p style={{
               fontSize: '0.875rem', color: 'rgba(240,244,255,0.28)',
