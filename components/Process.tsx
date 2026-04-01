@@ -15,8 +15,8 @@ export default function Process() {
       <div className="container-center">
         <div className="g-2t">
 
-          {/* Sticky left */}
-          <div className="reveal" style={{ position: 'sticky', top: '8rem' }}>
+          {/* Left — sticky only on desktop, normal flow on mobile */}
+          <div className="reveal sticky-lg">
             <p style={{
               fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
               color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
@@ -29,7 +29,7 @@ export default function Process() {
               fontWeight: 700, color: '#f0f4ff',
               letterSpacing: '-0.035em', lineHeight: 1.08, marginBottom: '1.25rem',
             }}>
-              From first call<br />to launch — {' '}
+              From first call<br />to launch —{' '}
               <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'rgba(240,244,255,0.35)' }}>
                 six steps.
               </span>
@@ -48,33 +48,26 @@ export default function Process() {
             </a>
           </div>
 
-          {/* Steps */}
-          <div className="reveal">
-            {steps.map((step) => (
-              <div key={step.number} style={{
-                display: 'flex', gap: '1.5rem',
-                paddingBottom: '2.5rem',
-                paddingTop: '0.5rem',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-                marginBottom: '0',
-              }}>
-                <span style={{
-                  fontSize: '0.75rem', fontWeight: 600,
-                  color: 'rgba(240,244,255,0.2)',
-                  fontFamily: 'monospace',
-                  flexShrink: 0,
-                  paddingTop: '0.25rem',
-                }}>
-                  {step.number}
-                </span>
-                <div>
+          {/* Steps — each step reveals individually with stagger */}
+          <div>
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                className="reveal step-item"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="step-num">{step.number}</div>
+                <div style={{ paddingTop: '0.875rem' }}>
                   <h3 style={{
-                    fontSize: '1rem', fontWeight: 700, color: '#f0f4ff',
-                    marginBottom: '0.5rem', letterSpacing: '-0.01em',
+                    fontSize: '1.0625rem', fontWeight: 700, color: '#f0f4ff',
+                    marginBottom: '0.5rem', letterSpacing: '-0.015em',
                   }}>
                     {step.title}
                   </h3>
-                  <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.38)', lineHeight: 1.8, margin: 0 }}>
+                  <p style={{
+                    fontSize: '0.875rem', color: 'rgba(240,244,255,0.4)',
+                    lineHeight: 1.8, margin: 0,
+                  }}>
                     {step.desc}
                   </p>
                 </div>

@@ -6,14 +6,14 @@ const services = [
     title: 'Website Development',
     desc: 'Fast, modern websites that convert visitors into customers. From landing pages to full corporate portals built to perform.',
     tags: ['Next.js', 'React', 'WordPress'],
-    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
   },
   {
     num: '02',
     title: 'Mobile App Development',
     desc: 'iOS and Android apps people actually enjoy using. Native performance, clean UI, and a solid backend that scales.',
     tags: ['React Native', 'Flutter', 'iOS / Android'],
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
   },
   {
     num: '03',
@@ -27,7 +27,7 @@ const services = [
     title: 'SaaS Development',
     desc: 'Multi-tenant software products with billing, dashboards, and the cloud architecture needed to scale reliably.',
     tags: ['Multi-tenant', 'Billing', 'Cloud'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
   },
   {
     num: '05',
@@ -50,7 +50,7 @@ export default function Services() {
     <section id="services" className="sec" style={{ background: '#050814' }}>
       <div className="container-center">
 
-        <div className="reveal" style={{ marginBottom: '4rem' }}>
+        <div className="reveal-left" style={{ marginBottom: '4rem' }}>
           <p style={{
             fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
             color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
@@ -74,9 +74,9 @@ export default function Services() {
           {services.map((svc, i) => (
             <div
               key={svc.title}
-              className="reveal"
+              className="reveal-blur"
               style={{
-                transitionDelay: `${i * 0.06}s`,
+                transitionDelay: `${i * 0.08}s`,
                 background: 'rgba(255,255,255,0.025)',
                 border: '1px solid rgba(255,255,255,0.07)',
                 borderRadius: '16px',
@@ -88,10 +88,14 @@ export default function Services() {
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                const arrow = e.currentTarget.querySelector('.svc-arrow') as SVGElement | null;
+                if (arrow) { arrow.style.stroke = 'rgba(240,244,255,0.7)'; arrow.style.transform = 'translateX(4px)'; }
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                const arrow = e.currentTarget.querySelector('.svc-arrow') as SVGElement | null;
+                if (arrow) { arrow.style.stroke = 'rgba(240,244,255,0.2)'; arrow.style.transform = 'translateX(0)'; }
               }}
             >
               {/* Image */}
@@ -129,12 +133,22 @@ export default function Services() {
 
               {/* Content */}
               <div style={{ padding: '1.5rem 1.75rem', display: 'flex', flexDirection: 'column', flex: 1, gap: '0.75rem' }}>
-                <h3 style={{
-                  fontSize: '1.125rem', fontWeight: 700,
-                  color: '#f0f4ff', letterSpacing: '-0.015em',
-                }}>
-                  {svc.title}
-                </h3>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <h3 style={{
+                    fontSize: '1.125rem', fontWeight: 700,
+                    color: '#f0f4ff', letterSpacing: '-0.015em',
+                  }}>
+                    {svc.title}
+                  </h3>
+                  <svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="rgba(240,244,255,0.2)" strokeWidth="2"
+                    style={{ flexShrink: 0, transition: 'stroke 0.25s, transform 0.3s', transform: 'translateX(0)' }}
+                    className="svc-arrow"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
 
                 <p style={{
                   fontSize: '0.875rem', color: 'rgba(240,244,255,0.4)',

@@ -19,16 +19,17 @@ const faqs = [
   },
 ];
 
+const trust = ['CAC Registered', 'NDA Available', 'Free Consultation', '48hr Proposal'];
+
 export default function CTA() {
   return (
     <section style={{ background: '#050814', paddingTop: 'clamp(5rem, 10vw, 8rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}>
       <div className="container-center">
-
         <div className="g-2t" style={{ gap: 'clamp(3rem, 6vw, 5rem)' }}>
 
           {/* Left — CTA block */}
-          <div className="reveal">
-            <p style={{
+          <div className="reveal-left">
+            <p className="reveal" style={{
               fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
               color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
               textTransform: 'uppercase',
@@ -36,7 +37,8 @@ export default function CTA() {
               Ready to start?
             </p>
 
-            <h2 style={{
+            <h2 className="reveal" style={{
+              transitionDelay: '0.08s',
               fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
               fontWeight: 700, color: '#f0f4ff',
               lineHeight: 1.05, letterSpacing: '-0.04em',
@@ -48,7 +50,8 @@ export default function CTA() {
               </span>
             </h2>
 
-            <p style={{
+            <p className="reveal" style={{
+              transitionDelay: '0.15s',
               fontSize: '1.0625rem',
               color: 'rgba(240,244,255,0.4)',
               lineHeight: 1.8,
@@ -58,7 +61,10 @@ export default function CTA() {
               within 48 hours. No obligation.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '3rem' }}>
+            <div className="reveal" style={{
+              transitionDelay: '0.22s',
+              display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '3rem',
+            }}>
               <a href="#contact" className="btn-primary" style={{ fontSize: '1rem', minHeight: '50px', padding: '0 2rem' }}>
                 Get a free quote
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -70,14 +76,22 @@ export default function CTA() {
               </a>
             </div>
 
-            {/* Trust line */}
+            {/* Trust badges — each pops in */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem' }}>
-              {['CAC Registered', 'NDA Available', 'Free Consultation', '48hr Proposal'].map((item) => (
-                <span key={item} style={{
-                  display: 'flex', alignItems: 'center', gap: '0.375rem',
-                  fontSize: '0.8125rem', color: 'rgba(240,244,255,0.25)', fontWeight: 500,
-                }}>
-                  <span style={{ fontSize: '0.75rem' }}>✓</span>
+              {trust.map((item, i) => (
+                <span
+                  key={item}
+                  className="reveal-pop"
+                  style={{
+                    transitionDelay: `${0.28 + i * 0.07}s`,
+                    display: 'flex', alignItems: 'center', gap: '0.375rem',
+                    fontSize: '0.8125rem', color: 'rgba(240,244,255,0.28)', fontWeight: 500,
+                  }}
+                >
+                  <span style={{
+                    fontSize: '0.625rem',
+                    color: '#3b82f6',
+                  }}>✓</span>
                   {item}
                 </span>
               ))}
@@ -85,8 +99,8 @@ export default function CTA() {
           </div>
 
           {/* Right — FAQ */}
-          <div className="reveal">
-            <p style={{
+          <div className="reveal-right" style={{ transitionDelay: '0.1s' }}>
+            <p className="reveal" style={{
               fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
               color: 'rgba(240,244,255,0.35)', marginBottom: '1.5rem',
               textTransform: 'uppercase',
@@ -95,10 +109,15 @@ export default function CTA() {
             </p>
             <div>
               {faqs.map((faq, i) => (
-                <div key={i} style={{
-                  paddingTop: '1.25rem', paddingBottom: '1.25rem',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                }}>
+                <div
+                  key={i}
+                  className="reveal"
+                  style={{
+                    transitionDelay: `${0.1 + i * 0.1}s`,
+                    paddingTop: '1.25rem', paddingBottom: '1.25rem',
+                    borderBottom: '1px solid rgba(255,255,255,0.06)',
+                  }}
+                >
                   <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#f0f4ff', marginBottom: '0.5rem' }}>
                     {faq.q}
                   </div>

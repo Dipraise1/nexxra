@@ -34,8 +34,8 @@ export default function Contact() {
         <div className="g-2t">
 
           {/* Left */}
-          <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            <div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+            <div className="reveal-left">
               <p style={{
                 fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
                 color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
@@ -59,10 +59,14 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Contact items */}
+            {/* Contact items — each stagger reveals */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              {contactItems.map((item) => (
-                <div key={item.label}>
+              {contactItems.map((item, i) => (
+                <div
+                  key={item.label}
+                  className="reveal"
+                  style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
+                >
                   <div style={{
                     fontSize: '0.625rem', fontWeight: 700,
                     letterSpacing: '0.1em', textTransform: 'uppercase',
@@ -78,10 +82,11 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Form — blurs in from right */}
           <div
-            className="reveal"
+            className="reveal-blur"
             style={{
+              transitionDelay: '0.2s',
               padding: 'clamp(1.5rem, 4vw, 2.5rem)',
               borderRadius: '20px',
               background: 'rgba(255,255,255,0.025)',

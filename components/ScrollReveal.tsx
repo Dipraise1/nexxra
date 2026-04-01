@@ -11,11 +11,11 @@ export default function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
     );
 
-    const revealEls = document.querySelectorAll('.reveal');
-    revealEls.forEach((el) => observer.observe(el));
+    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .reveal-pop, .reveal-line');
+    els.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);

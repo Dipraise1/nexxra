@@ -23,12 +23,12 @@ export default function Hero() {
         minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
-        background: '#050814',
+        background: '#020509',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         paddingTop: '7rem',
-        paddingBottom: '2rem',
+        paddingBottom: '8rem',
       }}
     >
       {/* Video background — fills the entire hero, sits behind content */}
@@ -44,7 +44,7 @@ export default function Hero() {
           style={{
             width: '100%', height: '100%',
             objectFit: 'cover',
-            opacity: 0.12,
+            opacity: 0.35,
           }}
         >
           <source src="/coverr-coding-on-a-laptop-2116-1080p.mp4" type="video/mp4" />
@@ -52,7 +52,40 @@ export default function Hero() {
         {/* Darkening overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(5,8,20,0.4) 0%, rgba(5,8,20,0.7) 100%)',
+          background: 'linear-gradient(to bottom, rgba(2,5,9,0.55) 0%, rgba(2,5,9,0.75) 100%)',
+        }} />
+      </div>
+
+      {/* Animated gradient orbs — add depth & life */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none',
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '8%', right: '12%',
+          width: '480px', height: '480px',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.13) 0%, transparent 70%)',
+          borderRadius: '50%',
+          animation: 'orbitFloat 14s ease-in-out infinite',
+          filter: 'blur(48px)',
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '15%', left: '3%',
+          width: '380px', height: '380px',
+          background: 'radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)',
+          borderRadius: '50%',
+          animation: 'orbitFloat2 18s ease-in-out infinite',
+          filter: 'blur(56px)',
+        }} />
+        <div style={{
+          position: 'absolute',
+          top: '55%', right: '35%',
+          width: '240px', height: '240px',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)',
+          borderRadius: '50%',
+          animation: 'orbitFloat 22s ease-in-out infinite reverse',
+          filter: 'blur(36px)',
         }} />
       </div>
 
@@ -65,11 +98,6 @@ export default function Hero() {
             fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.02em',
             color: 'rgba(240,244,255,0.4)',
           }}>
-            <span style={{
-              width: '6px', height: '6px', borderRadius: '50%',
-              background: '#34d399', boxShadow: '0 0 6px rgba(52,211,153,0.6)',
-              display: 'inline-block',
-            }} />
             Accepting new projects — Abuja, Nigeria
           </span>
         </div>
@@ -180,7 +208,7 @@ export default function Hero() {
             fontWeight: 700,
             letterSpacing: '-0.05em',
             lineHeight: 0.85,
-            color: 'rgba(255,255,255,0.018)',
+            color: 'rgba(255,255,255,0.18)',
             userSelect: 'none',
             paddingBottom: '0.5rem',
           }}

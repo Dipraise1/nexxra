@@ -32,7 +32,7 @@ export default function About() {
         <div className="g-2t">
 
           {/* Left */}
-          <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          <div className="reveal-left" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
             <div>
               <p style={{
                 fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
@@ -100,7 +100,7 @@ export default function About() {
           </div>
 
           {/* Right: fact cards */}
-          <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <div className="reveal-right" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', transitionDelay: '0.15s' }}>
             {facts.map((f) => (
               <div
                 key={f.heading}

@@ -26,7 +26,7 @@ export default function Testimonials() {
     <section id="testimonials" className="sec" style={{ background: '#050814' }}>
       <div className="container-center">
 
-        <div className="reveal" style={{ marginBottom: '4rem' }}>
+        <div className="reveal-left" style={{ marginBottom: '4rem' }}>
           <p style={{
             fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
             color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
@@ -47,29 +47,33 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className="reveal"
+              className="reveal-scale quote-accent"
               style={{
-                transitionDelay: `${i * 0.08}s`,
+                transitionDelay: `${i * 0.1}s`,
                 display: 'flex', flexDirection: 'column',
                 padding: '2rem',
                 background: 'rgba(255,255,255,0.025)',
                 border: '1px solid rgba(255,255,255,0.07)',
                 borderRadius: '16px',
-                transition: 'border-color 0.25s, background 0.25s',
+                transition: 'border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                e.currentTarget.style.borderColor = 'rgba(59,130,246,0.25)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,0.3)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <p style={{
-                fontSize: '1rem', color: 'rgba(240,244,255,0.55)',
+                fontSize: '1rem', color: 'rgba(240,244,255,0.6)',
                 lineHeight: 1.85, flex: 1, marginBottom: '2rem',
-                fontStyle: 'italic',
+                fontStyle: 'italic', position: 'relative', zIndex: 1,
               }}>
                 &ldquo;{t.text}&rdquo;
               </p>

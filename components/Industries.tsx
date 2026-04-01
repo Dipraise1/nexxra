@@ -14,7 +14,7 @@ export default function Industries() {
     <section id="industries" className="sec" style={{ background: '#050814' }}>
       <div className="container-center">
 
-        <div className="reveal" style={{ marginBottom: '4rem' }}>
+        <div className="reveal-left" style={{ marginBottom: '4rem' }}>
           <p style={{
             fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
             color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
@@ -41,24 +41,27 @@ export default function Industries() {
           display: 'grid', gap: '0.75rem',
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
         }}>
-          {industries.map((ind) => (
+          {industries.map((ind, i) => (
             <div
               key={ind.name}
-              className="reveal"
+              className="reveal-scale"
               style={{
+                transitionDelay: `${i * 0.07}s`,
                 padding: '1.75rem',
                 background: 'rgba(255,255,255,0.025)',
-                border: '1px solid rgba(255,255,255,0.07)',
+                border: `1px solid ${ind.featured ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.07)'}`,
                 borderRadius: '14px',
-                transition: 'border-color 0.25s, background 0.25s',
+                transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+                e.currentTarget.style.borderColor = ind.featured ? 'rgba(59,130,246,0.4)' : 'rgba(255,255,255,0.15)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
+                e.currentTarget.style.borderColor = ind.featured ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.07)';
                 e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.625rem' }}>
