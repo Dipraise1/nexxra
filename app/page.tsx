@@ -9,12 +9,9 @@ import CTA from '@/components/CTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
-import JsonLd from '@/components/JsonLd';
-
 export default function Home() {
   return (
     <>
-      <JsonLd />
       <ScrollReveal />
       <Navbar />
       <main>
