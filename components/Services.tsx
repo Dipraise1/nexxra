@@ -104,7 +104,9 @@ export default function Services() {
               }}>
                 <img
                   src={svc.image}
-                  alt={svc.title}
+                  alt={`${svc.title} — Nexxra Digital Nigeria`}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%', height: '100%', objectFit: 'cover', display: 'block',
                     transition: 'transform 0.5s ease',
