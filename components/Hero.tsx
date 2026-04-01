@@ -20,7 +20,7 @@ export default function Hero() {
     <section
       id="home"
       style={{
-        minHeight: '100vh',
+        minHeight: '100svh',
         position: 'relative',
         overflow: 'hidden',
         background: '#020509',
@@ -42,7 +42,11 @@ export default function Hero() {
           loop
           playsInline
           style={{
-            width: '100%', height: '100%',
+            position: 'absolute',
+            top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            minWidth: '100%', minHeight: '100%',
+            width: 'auto', height: 'auto',
             objectFit: 'cover',
             opacity: 0.35,
           }}
