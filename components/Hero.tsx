@@ -1,5 +1,34 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
+const rotatingWords = ['Fast', 'Scalable', 'Reliable', 'Beautiful'];
+
+function RotatingWord() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const id = setInterval(() => setIdx(i => (i + 1) % rotatingWords.length), 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="word-rotator" aria-live="polite">
+      {/* invisible sizer reserves the widest word so the line never reflows */}
+      <span className="word-rotator-sizer" aria-hidden="true">
+        {rotatingWords.reduce((a, b) => (b.length > a.length ? b : a))}
+      </span>
+      {rotatingWords.map((w, i) => (
+        <span key={w} className={`brand-grad word-rotator-item${i === idx ? ' is-active' : ''}`}>
+          {w}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 const avatars = [
   'https://images.unsplash.com/photo-1604933762021-54a5858c9832?auto=format&fit=crop&w=120&q=80',
   'https://images.unsplash.com/photo-1612831197630-ba9be548f9a9?auto=format&fit=crop&w=120&q=80',
@@ -69,7 +98,7 @@ export default function Hero() {
             marginBottom: '1.5rem',
             width: '100%',
           }}>
-            Next-Gen Digital Solutions Designed to be <span className="brand-grad">Fast</span>
+            Next-Gen Digital Solutions Designed to be <RotatingWord />
           </h1>
 
           {/* Subtext */}
