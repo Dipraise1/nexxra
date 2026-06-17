@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const syne = Syne({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nexxradigital.com"),
+  metadataBase: new URL("https://www.nexxradigitals.com"),
   title: {
     default: "Web Development Company in Abuja, Nigeria | Nexxra Digital",
     template: "%s | Nexxra Digital",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "IT company Abuja",
     "app developer Nigeria",
   ],
-  authors: [{ name: "Nexxra Digital", url: "https://nexxradigital.com" }],
+  authors: [{ name: "Nexxra Digital", url: "https://www.nexxradigitals.com" }],
   creator: "Nexxra Digital",
   publisher: "Nexxra Digital",
   robots: {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://nexxradigital.com",
+    url: "https://www.nexxradigitals.com",
     siteName: "Nexxra Digital",
     title: "Web Development Company in Abuja, Nigeria | Nexxra Digital",
     description:
@@ -76,11 +76,11 @@ export const metadata: Metadata = {
     title: "Web Development Company in Abuja, Nigeria | Nexxra Digital",
     description:
       "CAC-registered tech company building websites, mobile apps, SaaS & automation for Nigerian businesses.",
-    creator: "@nexxradigital",
-    site: "@nexxradigital",
+    creator: "@nexxradigitals",
+    site: "@nexxradigitals",
   },
   alternates: {
-    canonical: "https://nexxradigital.com",
+    canonical: "https://www.nexxradigitals.com",
   },
   category: "technology",
   other: {
@@ -101,7 +101,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -109,15 +108,21 @@ export default function RootLayout({
             "@graph": [
               {
                 "@type": "LocalBusiness",
-                "@id": "https://nexxradigital.com/#business",
+                "@id": "https://www.nexxradigitals.com/#business",
                 "name": "Nexxra Digital",
+                "legalName": "Nexxra Tech Innovations Limited",
                 "alternateName": "Nexxra Digital Technologies",
                 "description": "CAC-registered web development and tech company in Abuja, Nigeria. We build websites, mobile apps, SaaS platforms, and business automation systems for Nigerian businesses.",
-                "url": "https://nexxradigital.com",
-                "email": "hello@nexxradigital.com",
-                "telephone": "+234-800-NEXXRA",
-                "foundingDate": "2023",
+                "url": "https://www.nexxradigitals.com",
+                "email": "hello@nexxradigitals.com",
+                "telephone": "+2348110268093",
+                "foundingDate": "2025",
+                "identifier": [
+                  { "@type": "PropertyValue", "propertyID": "RC", "name": "CAC Registration Number", "value": "9472371" },
+                  { "@type": "PropertyValue", "propertyID": "TIN", "name": "Tax Identification Number", "value": "2623718314591" }
+                ],
                 "address": { "@type": "PostalAddress", "addressLocality": "Abuja", "addressRegion": "Federal Capital Territory", "addressCountry": "NG" },
+                "contactPoint": { "@type": "ContactPoint", "telephone": "+2348110268093", "contactType": "sales", "email": "hello@nexxradigitals.com", "areaServed": "NG", "availableLanguage": ["en"] },
                 "geo": { "@type": "GeoCoordinates", "latitude": 9.0765, "longitude": 7.3986 },
                 "openingHoursSpecification": [
                   { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
@@ -137,20 +142,20 @@ export default function RootLayout({
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing", "description": "SEO, PPC, social media strategy for Nigerian businesses." } }
                   ]
                 },
-                "sameAs": ["https://twitter.com/nexxradigital","https://linkedin.com/company/nexxradigital","https://instagram.com/nexxradigital"]
+                "sameAs": ["https://twitter.com/nexxradigitals","https://linkedin.com/company/nexxradigitals","https://instagram.com/nexxradigitals"]
               },
               {
                 "@type": "WebSite",
-                "@id": "https://nexxradigital.com/#website",
-                "url": "https://nexxradigital.com",
+                "@id": "https://www.nexxradigitals.com/#website",
+                "url": "https://www.nexxradigitals.com",
                 "name": "Nexxra Digital",
-                "publisher": { "@id": "https://nexxradigital.com/#business" }
+                "publisher": { "@id": "https://www.nexxradigitals.com/#business" }
               }
             ]
           }) }}
         />
       </head>
-      <body className={`${spaceGrotesk.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${syne.variable} ${dmSans.variable} antialiased`}>
         {children}
       </body>
     </html>

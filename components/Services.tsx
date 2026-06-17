@@ -1,183 +1,52 @@
 'use client';
 
 const services = [
-  {
-    num: '01',
-    title: 'Website Development',
-    desc: 'Fast, modern websites that convert visitors into customers. From landing pages to full corporate portals built to perform.',
-    tags: ['Next.js', 'React', 'WordPress'],
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    num: '02',
-    title: 'Mobile App Development',
-    desc: 'iOS and Android apps people actually enjoy using. Native performance, clean UI, and a solid backend that scales.',
-    tags: ['React Native', 'Flutter', 'iOS / Android'],
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    num: '03',
-    title: 'Real Estate Solutions',
-    desc: 'Property portals, agent CRMs, virtual tours, and lead generation — built specifically for the Nigerian market.',
-    tags: ['Listings', 'CRM', 'Portals'],
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    num: '04',
-    title: 'SaaS Development',
-    desc: 'Multi-tenant software products with billing, dashboards, and the cloud architecture needed to scale reliably.',
-    tags: ['Multi-tenant', 'Billing', 'Cloud'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    num: '05',
-    title: 'Business Automation',
-    desc: 'Connect your tools, automate workflows, and eliminate the manual work that slows your team down every day.',
-    tags: ['CRM Automation', 'Workflows', 'APIs'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    num: '06',
-    title: 'Digital Marketing',
-    desc: 'SEO, paid ads, social media strategy, and content that grows your traffic and turns it into real revenue.',
-    tags: ['SEO', 'Social Media', 'PPC'],
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
-  },
+  { icon: '/services/website.gif',    bg: 'linear-gradient(160deg,#eef2ff,#dbe4ff)', title: 'Website Development',    desc: 'Modern, high-converting websites — from landing pages to full corporate portals.' },
+  { icon: '/services/design.gif',     bg: 'linear-gradient(160deg,#fce7ff,#f0e0ff)', title: 'UI/UX Design',           desc: 'Intuitive, engaging interfaces that blend creativity with conversion-focused functionality.' },
+  { icon: '/services/mobile.gif',     bg: 'linear-gradient(160deg,#e0f2fe,#dbeafe)', title: 'Mobile App Development', desc: 'iOS and Android apps with native performance, polished design, and a backend that scales.' },
+  { icon: '/services/realestate.gif', bg: 'linear-gradient(160deg,#dcfce7,#cdeee0)', title: 'Real Estate Solutions',  desc: 'Property portals, agent CRMs, and lead generation built for the Nigerian market.' },
+  { icon: '/services/saas.gif',       bg: 'linear-gradient(160deg,#fff1e6,#ffe4cc)', title: 'SaaS Development',       desc: 'Multi-tenant products with billing, dashboards, and cloud architecture that scales.' },
+  { icon: '/services/ecommerce.gif',  bg: 'linear-gradient(160deg,#ffe4e6,#fdd3da)', title: 'E-Commerce',             desc: 'Online stores and marketplaces with secure payments and a checkout that converts.' },
+  { icon: '/services/automation.gif', bg: 'linear-gradient(160deg,#e6e9ff,#e7defb)', title: 'Business Automation',    desc: 'Automate workflows and integrations to eliminate slow, repetitive manual work.' },
+  { icon: '/services/marketing.gif',  bg: 'linear-gradient(160deg,#d6faf3,#cdf3f7)', title: 'Digital Marketing',      desc: 'SEO, paid ads, and content that grows your traffic and turns it into real revenue.' },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="sec" style={{ background: '#050814' }}>
-      <div className="container-center">
-
-        <div className="reveal-left" style={{ marginBottom: '4rem' }}>
-          <p style={{
-            fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
-            color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
-            textTransform: 'uppercase',
-          }}>
-            What we build
-          </p>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4.5vw, 3.25rem)',
-            fontWeight: 700, color: '#f0f4ff',
-            letterSpacing: '-0.035em', lineHeight: 1.08, marginBottom: '1rem',
-          }}>
-            Six services. One team.
-          </h2>
-          <p style={{ fontSize: '1rem', color: 'rgba(240,244,255,0.4)', lineHeight: 1.75, maxWidth: '40rem' }}>
-            We cover the full stack of digital services that growing Nigerian businesses need — from idea to launch and beyond.
-          </p>
+    <section id="services" className="sec dash-bottom" style={{ background: 'var(--bg)' }}>
+      <div className="container-wide">
+        <div className="sec-hd reveal" style={{ maxWidth: '44rem' }}>
+          <span className="eyebrow" style={{ justifyContent: 'center' }}><span className="dot" /> What we do</span>
+          <h2>What We Offer</h2>
+          <p>From concept to code, we craft functional, high-performing websites, apps, and platforms — eight ways we help you grow.</p>
         </div>
 
-        <div className="g-3">
+        <div className="g-4" style={{ gap: '1.5rem' }}>
           {services.map((svc, i) => (
-            <div
-              key={svc.title}
-              className="reveal-blur"
-              style={{
-                transitionDelay: `${i * 0.08}s`,
-                background: 'rgba(255,255,255,0.025)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                transition: 'border-color 0.25s, background 0.25s',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                const arrow = e.currentTarget.querySelector('.svc-arrow') as SVGElement | null;
-                if (arrow) { arrow.style.stroke = 'rgba(240,244,255,0.7)'; arrow.style.transform = 'translateX(4px)'; }
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-                const arrow = e.currentTarget.querySelector('.svc-arrow') as SVGElement | null;
-                if (arrow) { arrow.style.stroke = 'rgba(240,244,255,0.2)'; arrow.style.transform = 'translateX(0)'; }
-              }}
-            >
-              {/* Image */}
-              <div style={{
-                position: 'relative', height: '180px', overflow: 'hidden', flexShrink: 0,
-              }}>
+            <div key={svc.title} className="reveal-blur card svc-img-card" style={{ transitionDelay: `${i * 0.04}s`, position: 'relative', padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', borderRadius: '20px' }}>
+              {/* Full-bleed animated media panel with number chip + wavy divider */}
+              <div style={{ position: 'relative', aspectRatio: '16 / 11', background: svc.bg, overflow: 'hidden' }}>
+                <span className="svc-chip" style={{ zIndex: 2 }}>{String(i + 1).padStart(2, '0')}</span>
                 <img
-                  src={svc.image}
-                  alt={`${svc.title} — Nexxra Digital Nigeria`}
+                  src={svc.icon}
+                  alt={svc.title}
                   loading="lazy"
                   decoding="async"
-                  style={{
-                    width: '100%', height: '100%', objectFit: 'cover', display: 'block',
-                    transition: 'transform 0.5s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  className="svc-img"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', zIndex: 0 }}
                 />
-                {/* Subtle bottom fade into card */}
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0, height: '60px',
-                  background: 'linear-gradient(to top, rgba(5,8,20,0.8), transparent)',
-                }} />
-                {/* Number badge */}
-                <span style={{
-                  position: 'absolute', top: '0.75rem', right: '0.75rem',
-                  fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.06em',
-                  color: 'rgba(255,255,255,0.45)',
-                  background: 'rgba(5,8,20,0.65)',
-                  backdropFilter: 'blur(8px)',
-                  borderRadius: '6px',
-                  padding: '0.2rem 0.5rem',
-                }}>
-                  {svc.num}
-                </span>
+                <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style={{ position: 'absolute', left: 0, bottom: '-1px', width: '100%', height: '30px', display: 'block', zIndex: 1 }}>
+                  <path d="M0,30 C220,62 420,4 660,26 C880,46 1010,44 1200,20 L1200,60 L0,60 Z" fill="var(--surface)" />
+                </svg>
               </div>
 
-              {/* Content */}
-              <div style={{ padding: '1.5rem 1.75rem', display: 'flex', flexDirection: 'column', flex: 1, gap: '0.75rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <h3 style={{
-                    fontSize: '1.125rem', fontWeight: 700,
-                    color: '#f0f4ff', letterSpacing: '-0.015em',
-                  }}>
-                    {svc.title}
-                  </h3>
-                  <svg
-                    width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="rgba(240,244,255,0.2)" strokeWidth="2"
-                    style={{ flexShrink: 0, transition: 'stroke 0.25s, transform 0.3s', transform: 'translateX(0)' }}
-                    className="svc-arrow"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-
-                <p style={{
-                  fontSize: '0.875rem', color: 'rgba(240,244,255,0.4)',
-                  lineHeight: 1.8, margin: 0, flex: 1,
-                }}>
-                  {svc.desc}
-                </p>
-
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem', paddingTop: '0.25rem' }}>
-                  {svc.tags.map((tag) => (
-                    <span key={tag} style={{
-                      padding: '0.2rem 0.6rem',
-                      borderRadius: '6px',
-                      fontSize: '0.6875rem', fontWeight: 500,
-                      color: 'rgba(240,244,255,0.35)',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.07)',
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div style={{ padding: '0.7rem 1.25rem 1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.4rem' }}>{svc.title}</h3>
+                <p style={{ fontSize: '0.85rem', color: 'var(--ink-2)', lineHeight: 1.6, margin: 0 }}>{svc.desc}</p>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

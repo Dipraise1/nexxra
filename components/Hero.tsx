@@ -1,245 +1,134 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+const avatars = [
+  'https://images.unsplash.com/photo-1604933762021-54a5858c9832?auto=format&fit=crop&w=120&q=80',
+  'https://images.unsplash.com/photo-1612831197630-ba9be548f9a9?auto=format&fit=crop&w=120&q=80',
+  'https://images.unsplash.com/photo-1573495612522-d994e72e5f56?auto=format&fit=crop&w=120&q=80',
+];
 
 export default function Hero() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (marqueeRef.current) {
-        const scrollY = window.scrollY;
-        marqueeRef.current.style.transform = `translateX(${-scrollY * 0.15}px)`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       id="home"
       style={{
-        minHeight: '100svh',
-        width: '100%',
-        maxWidth: '100vw',
         position: 'relative',
+        background: 'var(--bg)',
         overflow: 'hidden',
-        background: '#020509',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingTop: '7rem',
-        paddingBottom: '8rem',
+        paddingTop: 'clamp(7rem, 14vw, 10rem)',
+        paddingBottom: 'clamp(4rem, 8vw, 6rem)',
       }}
     >
-      {/* Video background */}
-      <div aria-hidden="true" style={{
-        position: 'absolute',
-        top: 0, left: 0, right: 0, bottom: 0,
-        width: '100%', height: '100%',
-        zIndex: 0,
-        overflow: 'hidden',
-      }}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            minWidth: '100%',
-            minHeight: '100%',
-            width: 'auto',
-            height: 'auto',
-            opacity: 0.35,
-            display: 'block',
-          }}
-        >
-          <source src="/coverr-coding-on-a-laptop-2116-1080p.mp4" type="video/mp4" />
-        </video>
-        {/* Darkening overlay */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(to bottom, rgba(2,5,9,0.55) 0%, rgba(2,5,9,0.75) 100%)',
-        }} />
-      </div>
+      {/* Faint line grid background with radial fade */}
+      <div aria-hidden="true" className="line-grid" style={{
+        position: 'absolute', inset: 0, zIndex: 0,
+        opacity: 0.55,
+        WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 42%, #000 0%, transparent 75%)',
+        maskImage: 'radial-gradient(ellipse 70% 60% at 50% 42%, #000 0%, transparent 75%)',
+      }} />
 
-      {/* Animated gradient orbs — add depth & life */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none',
-      }}>
+      <div className="frame frame-pad dash-bottom" style={{ position: 'relative', zIndex: 1, paddingTop: '1rem', paddingBottom: '4.5rem' }}>
         <div style={{
-          position: 'absolute',
-          top: '8%', right: '12%',
-          width: '480px', height: '480px',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.13) 0%, transparent 70%)',
-          borderRadius: '50%',
-          animation: 'orbitFloat 14s ease-in-out infinite',
-          filter: 'blur(48px)',
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '15%', left: '3%',
-          width: '380px', height: '380px',
-          background: 'radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)',
-          borderRadius: '50%',
-          animation: 'orbitFloat2 18s ease-in-out infinite',
-          filter: 'blur(56px)',
-        }} />
-        <div style={{
-          position: 'absolute',
-          top: '55%', right: '35%',
-          width: '240px', height: '240px',
-          background: 'radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%)',
-          borderRadius: '50%',
-          animation: 'orbitFloat 22s ease-in-out infinite reverse',
-          filter: 'blur(36px)',
-        }} />
-      </div>
-
-      <div className="container-center" style={{ position: 'relative', zIndex: 1 }}>
-
-        {/* Eyebrow */}
-        <div className="fade-in-up" style={{ marginBottom: '2rem' }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-            fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.02em',
-            color: 'rgba(240,244,255,0.4)',
-          }}>
-            Accepting new projects — Abuja, Nigeria
-          </span>
-        </div>
-
-        {/* Main headline */}
-        <h1 className="fade-in-up delay-100" style={{
-          fontSize: 'clamp(3rem, 7.5vw, 6.5rem)',
-          fontWeight: 700,
-          lineHeight: 0.98,
-          letterSpacing: '-0.045em',
-          color: '#f0f4ff',
-          marginBottom: '2.5rem',
-          maxWidth: '900px',
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          textAlign: 'center', maxWidth: '46rem', margin: '0 auto',
         }}>
-          We design &amp;
-          <br />
-          build digital
-          <br />
-          <span style={{
-            fontStyle: 'italic',
-            fontWeight: 400,
-            color: 'rgba(240,244,255,0.35)',
-          }}>
-            products.
-          </span>
-        </h1>
 
-        {/* Supporting copy + CTAs */}
-        <div className="fade-in-up delay-200" style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '3rem',
-          alignItems: 'flex-end',
-          marginBottom: '4rem',
-        }}>
-          <p style={{
-            fontSize: '1.0625rem',
-            color: 'rgba(240,244,255,0.45)',
-            lineHeight: 1.8,
-            maxWidth: '420px',
+          {/* Trust pill */}
+          <div className="fade-in-up" style={{
+            display: 'inline-flex', alignItems: 'center', gap: '0.625rem',
+            padding: '0.3rem 0.875rem 0.3rem 0.4rem',
+            background: 'var(--surface)', border: '1px solid var(--line)',
+            borderRadius: '9999px', boxShadow: 'var(--shadow-card)',
+            marginBottom: '2rem',
           }}>
-            Websites, mobile apps, SaaS platforms, and business automation — 
-            built by a real team in Abuja, delivered on time, and actually maintained after launch.
+            <div style={{ display: 'flex' }}>
+              {avatars.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt=""
+                  style={{
+                    width: '24px', height: '24px', borderRadius: '50%',
+                    objectFit: 'cover', border: '2px solid #fff',
+                    marginLeft: i === 0 ? 0 : '-8px',
+                  }}
+                />
+              ))}
+            </div>
+            <span style={{ fontSize: '0.8125rem', color: 'var(--ink-2)', fontWeight: 500 }}>
+              Trusted by bold businesses in Nigeria
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="fade-in-up delay-100" style={{
+            fontSize: 'clamp(2rem, 7vw, 4.5rem)',
+            fontWeight: 700,
+            lineHeight: 1.05,
+            letterSpacing: '-0.035em',
+            color: 'var(--ink)',
+            marginBottom: '1.5rem',
+            width: '100%',
+          }}>
+            Next-Gen Digital Solutions Designed to be <span className="brand-grad">Fast</span>
+          </h1>
+
+          {/* Subtext */}
+          <p className="fade-in-up delay-200" style={{
+            fontSize: '1.0625rem', color: 'var(--ink-2)', lineHeight: 1.7,
+            width: '100%', maxWidth: '30rem', marginBottom: '2.25rem',
+          }}>
+            Helping Nigerian businesses grow with clean code,
+            scalable products, and design that performs.
           </p>
 
-          <div style={{ display: 'flex', gap: '0.75rem' }}>
-            <a href="#contact" className="btn-primary">
-              Start a project
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+          {/* CTA + socials */}
+          <div className="fade-in-up delay-300" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+            <a href="#contact" className="btn-primary" style={{ minHeight: '52px', padding: '0 2.25rem', fontSize: '0.95rem' }}>
+              Start Your Project
             </a>
-            <a href="#services" className="btn-ghost-white">
-              Our services
-            </a>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', fontWeight: 500 }}>Follow us</span>
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/nexxradigitals"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-ico"
+                aria-label="Nexxra Digital on Instagram"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5.5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+
+              {/* TikTok — coming soon */}
+              <span style={{ position: 'relative', display: 'inline-flex' }}>
+                <span className="social-ico is-soon" aria-label="TikTok — coming soon" title="TikTok — coming soon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16.5 3c.32 2.06 1.47 3.4 3.5 3.55v2.42c-1.18.12-2.21-.27-3.41-1v5.84c0 3.45-2.46 5.69-5.62 5.69-3.06 0-5.47-2.36-5.47-5.27 0-3.27 2.7-5.6 6.07-4.99v2.56c-.4-.1-.83-.16-1.27-.16-1.4 0-2.4 1.02-2.4 2.45 0 1.46 1.01 2.5 2.45 2.5 1.53 0 2.62-1.13 2.62-2.86V3h3.43z" />
+                  </svg>
+                </span>
+                <span className="soon-badge">Soon</span>
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="fade-in-up delay-300" style={{
-          borderTop: '1px solid rgba(255,255,255,0.08)',
-          paddingTop: '2rem',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '3rem',
+        {/* Showcase — African tech team */}
+        <div className="fade-in-up delay-400 hero-shot" style={{
+          marginTop: 'clamp(2.5rem, 6vw, 4rem)',
         }}>
-          {[
-            { value: '0', label: 'Projects shipped' },
-            { value: '0', label: 'Clients served' },
-            { value: '0', label: 'In business' },
-            { value: '0%', label: 'On-time delivery' },
-          ].map((s) => (
-            <div key={s.label} style={{ minWidth: '100px' }}>
-              <div style={{
-                fontSize: '1.75rem', fontWeight: 700, letterSpacing: '-0.03em',
-                color: '#f0f4ff', lineHeight: 1, marginBottom: '0.375rem',
-              }}>
-                {s.value}
-              </div>
-              <div style={{
-                fontSize: '0.75rem', color: 'rgba(240,244,255,0.28)',
-                fontWeight: 500, letterSpacing: '0.02em',
-              }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
+          <img
+            src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1400&q=80"
+            alt="Software team collaborating in Abuja, Nigeria"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
         </div>
       </div>
-
-      {/* Large scrolling text strip at the bottom */}
-      <div style={{
-        position: 'absolute',
-        bottom: '0',
-        left: 0,
-        right: 0,
-        overflow: 'hidden',
-        pointerEvents: 'none',
-        zIndex: 0,
-      }}>
-        <div
-          ref={marqueeRef}
-          style={{
-            display: 'flex',
-            gap: '4rem',
-            whiteSpace: 'nowrap',
-            fontSize: 'clamp(6rem, 14vw, 12rem)',
-            fontWeight: 700,
-            letterSpacing: '-0.05em',
-            lineHeight: 0.85,
-            color: 'rgba(255,255,255,0.18)',
-            userSelect: 'none',
-            paddingBottom: '0.5rem',
-          }}
-        >
-          <span>NEXXRA DIGITAL</span>
-          <span>·</span>
-          <span>NEXXRA DIGITAL</span>
-          <span>·</span>
-          <span>NEXXRA DIGITAL</span>
-        </div>
-      </div>
-
-      {/* Bottom gradient fade */}
-      <div aria-hidden="true" style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0, height: '120px',
-        background: 'linear-gradient(to top, #050814, transparent)',
-        pointerEvents: 'none', zIndex: 1,
-      }} />
     </section>
   );
 }

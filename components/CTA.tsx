@@ -1,136 +1,87 @@
 'use client';
 
+import { useState } from 'react';
+
 const faqs = [
-  {
-    q: 'How much does a project cost?',
-    a: 'It depends on scope. A simple website starts around ₦500k. Complex platforms can run into millions. We give you a fixed quote before any work begins — no surprises.',
-  },
-  {
-    q: 'How long does a typical project take?',
-    a: 'Most websites take 2–4 weeks. Mobile apps and SaaS products typically take 6–12 weeks depending on complexity.',
-  },
-  {
-    q: 'Do you work with clients outside Abuja?',
-    a: 'Yes. We work with businesses across Nigeria and internationally. Most of our collaboration happens over calls and shared project tools.',
-  },
-  {
-    q: 'What happens after launch?',
-    a: 'We include 30 days of free support post-launch. After that, we offer monthly maintenance packages or ad-hoc support as needed.',
-  },
+  { q: 'How long does a project take?',        a: 'Most websites take 2–4 weeks. Mobile apps and SaaS products typically take 6–12 weeks depending on complexity.' },
+  { q: 'Do you provide post-launch support?',  a: 'Yes — we include 30 days of free support after launch. After that, we offer monthly maintenance packages or ad-hoc support as needed.' },
+  { q: "What's your design process like?",     a: 'We design your product first and you approve mockups before any code is written. You review every milestone, with weekly updates and a live staging environment.' },
+  { q: 'How much does a project cost?',         a: 'It depends on scope. A simple website starts around ₦500k; complex platforms run higher. You get a fixed quote before any work begins — no surprises.' },
+  { q: 'Do you work with clients outside Abuja?', a: 'Yes. We work with businesses across Nigeria and internationally, collaborating over calls and shared project tools.' },
 ];
 
-const trust = ['CAC Registered', 'NDA Available', 'Free Consultation', '48hr Proposal'];
+function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
+  return (
+    <div className="faq-item" data-open={open}>
+      <button className="faq-q" onClick={onToggle} aria-expanded={open}>
+        <span>{q}</span>
+        <svg className="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div className="faq-a"><div className="faq-a-inner"><p>{a}</p></div></div>
+    </div>
+  );
+}
 
 export default function CTA() {
+  const [openIdx, setOpenIdx] = useState<number | null>(1);
+
   return (
-    <section style={{ background: '#050814', paddingTop: 'clamp(5rem, 10vw, 8rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}>
-      <div className="container-center">
-        <div className="g-2t" style={{ gap: 'clamp(3rem, 6vw, 5rem)' }}>
-
-          {/* Left — CTA block */}
-          <div className="reveal-left">
-            <p className="reveal" style={{
-              fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
-              color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
-              textTransform: 'uppercase',
-            }}>
-              Ready to start?
-            </p>
-
-            <h2 className="reveal" style={{
-              transitionDelay: '0.08s',
-              fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
-              fontWeight: 700, color: '#f0f4ff',
-              lineHeight: 1.05, letterSpacing: '-0.04em',
-              marginBottom: '1.5rem',
-            }}>
-              Let&apos;s build something{' '}
-              <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'rgba(240,244,255,0.35)' }}>
-                great together.
-              </span>
-            </h2>
-
-            <p className="reveal" style={{
-              transitionDelay: '0.15s',
-              fontSize: '1.0625rem',
-              color: 'rgba(240,244,255,0.4)',
-              lineHeight: 1.8,
-              maxWidth: '32rem', marginBottom: '2.5rem',
-            }}>
-              Book a free call. We&apos;ll scope your project and send a detailed proposal
-              within 48 hours. No obligation.
-            </p>
-
-            <div className="reveal" style={{
-              transitionDelay: '0.22s',
-              display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '3rem',
-            }}>
-              <a href="#contact" className="btn-primary" style={{ fontSize: '1rem', minHeight: '50px', padding: '0 2rem' }}>
-                Get a free quote
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a href="mailto:hello@nexxradigital.com" className="btn-ghost-white" style={{ fontSize: '1rem', minHeight: '50px', padding: '0 2rem' }}>
-                Email us
-              </a>
-            </div>
-
-            {/* Trust badges — each pops in */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem' }}>
-              {trust.map((item, i) => (
-                <span
-                  key={item}
-                  className="reveal-pop"
-                  style={{
-                    transitionDelay: `${0.28 + i * 0.07}s`,
-                    display: 'flex', alignItems: 'center', gap: '0.375rem',
-                    fontSize: '0.8125rem', color: 'rgba(240,244,255,0.28)', fontWeight: 500,
-                  }}
-                >
-                  <span style={{
-                    fontSize: '0.625rem',
-                    color: '#3b82f6',
-                  }}>✓</span>
-                  {item}
-                </span>
-              ))}
-            </div>
+    <>
+      {/* FAQ */}
+      <section id="faq" className="sec dash-bottom" style={{ background: 'var(--bg)' }}>
+        <div className="frame frame-pad">
+          <div className="sec-hd reveal">
+            <span className="sec-label"><span className="dot" /> Frequently asked questions</span>
+            <h2>Got questions? We&apos;ve got answers.</h2>
+            <p>Here&apos;s a quick look at how we work and what to expect.</p>
           </div>
 
-          {/* Right — FAQ */}
-          <div className="reveal-right" style={{ transitionDelay: '0.1s' }}>
-            <p className="reveal" style={{
-              fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
-              color: 'rgba(240,244,255,0.35)', marginBottom: '1.5rem',
-              textTransform: 'uppercase',
-            }}>
-              Common questions
-            </p>
-            <div>
-              {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="reveal"
-                  style={{
-                    transitionDelay: `${0.1 + i * 0.1}s`,
-                    paddingTop: '1.25rem', paddingBottom: '1.25rem',
-                    borderBottom: '1px solid rgba(255,255,255,0.06)',
-                  }}
-                >
-                  <div style={{ fontSize: '0.9375rem', fontWeight: 700, color: '#f0f4ff', marginBottom: '0.5rem' }}>
-                    {faq.q}
-                  </div>
-                  <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.38)', lineHeight: 1.8, margin: 0 }}>
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="reveal" style={{ maxWidth: '44rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {faqs.map((faq, i) => (
+              <FAQItem key={i} q={faq.q} a={faq.a} open={openIdx === i} onToggle={() => setOpenIdx(openIdx === i ? null : i)} />
+            ))}
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Dark CTA block */}
+      <section className="sec" style={{ background: 'var(--bg)' }}>
+        <div className="frame frame-pad">
+          <div className="reveal-scale" style={{
+            position: 'relative', overflow: 'hidden',
+            background: 'var(--dark)', borderRadius: '24px',
+            padding: 'clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
+            textAlign: 'center',
+          }}>
+            {/* grid texture */}
+            <div aria-hidden="true" className="line-grid-dark" style={{
+              position: 'absolute', inset: 0,
+              WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000, transparent 75%)',
+              maskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000, transparent 75%)',
+            }} />
+            {/* brand accent glow */}
+            <div aria-hidden="true" style={{
+              position: 'absolute', top: '-30%', left: '50%', transform: 'translateX(-50%)',
+              width: '70%', height: '120%',
+              background: 'radial-gradient(ellipse at center, rgba(58,92,255,0.32) 0%, rgba(109,75,255,0.12) 40%, transparent 70%)',
+              pointerEvents: 'none',
+            }} />
+            <div style={{ position: 'relative' }}>
+              <h2 style={{ fontSize: 'clamp(1.75rem, 4.5vw, 3rem)', fontWeight: 700, color: '#fff', lineHeight: 1.08, marginBottom: '1rem' }}>
+                Ready to Elevate Your Digital Presence?
+              </h2>
+              <p style={{ fontSize: '1.0625rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, maxWidth: '34rem', margin: '0 auto 2.25rem' }}>
+                Whether it&apos;s a website, app, or complete brand experience — we&apos;ll bring your ideas to life with precision and purpose.
+              </p>
+              <a href="#contact" className="btn-light" style={{ minHeight: '52px', padding: '0 2.25rem' }}>
+                Start Your Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: "https://nexxradigital.com/sitemap.xml",
-    host: "https://nexxradigital.com",
+    sitemap: "https://www.nexxradigitals.com/sitemap.xml",
+    host: "https://www.nexxradigitals.com",
   };
 }

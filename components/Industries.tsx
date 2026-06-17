@@ -1,91 +1,42 @@
 'use client';
 
 const industries = [
-  { name: 'Real Estate', desc: 'Property listing platforms, agent CRM, virtual tours, and lead generation.', featured: true },
-  { name: 'Finance & Fintech', desc: 'Payment processing, loan management, digital banking interfaces.' },
-  { name: 'Healthcare', desc: 'Patient management, appointment booking, telemedicine platforms.' },
-  { name: 'E-Commerce', desc: 'Online stores, multi-vendor marketplaces, payment gateway integrations.' },
-  { name: 'Education', desc: 'Learning management systems, student portals, e-learning platforms.' },
-  { name: 'Logistics', desc: 'Fleet tracking, delivery management, route optimization.' },
+  { num: '01', name: 'Real Estate',       desc: 'Property listing platforms, agent CRM, virtual tours, and lead generation for the Nigerian market.', featured: true },
+  { num: '02', name: 'Finance & Fintech',  desc: 'Payment processing, loan management systems, and digital banking interfaces.' },
+  { num: '03', name: 'Healthcare',         desc: 'Patient management, appointment booking, and telemedicine platforms.' },
+  { num: '04', name: 'E-Commerce',         desc: 'Online stores, multi-vendor marketplaces, and payment gateway integrations.' },
+  { num: '05', name: 'Education',          desc: 'Learning management systems, student portals, and e-learning platforms.' },
+  { num: '06', name: 'Logistics',          desc: 'Fleet tracking, delivery management, and route optimisation software.' },
 ];
 
 export default function Industries() {
   return (
-    <section id="industries" className="sec" style={{ background: '#050814' }}>
-      <div className="container-center">
-
-        <div className="reveal-left" style={{ marginBottom: '4rem' }}>
-          <p style={{
-            fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.04em',
-            color: 'rgba(240,244,255,0.35)', marginBottom: '1.25rem',
-            textTransform: 'uppercase',
-          }}>
-            Industries we serve
-          </p>
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4.5vw, 3.25rem)',
-            fontWeight: 700, color: '#f0f4ff',
-            letterSpacing: '-0.035em', lineHeight: 1.08, marginBottom: '1rem',
-          }}>
-            Real products built<br />
-            <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'rgba(240,244,255,0.35)' }}>
-              in these sectors.
-            </span>
-          </h2>
-          <p style={{ fontSize: '1rem', color: 'rgba(240,244,255,0.4)', lineHeight: 1.75, maxWidth: '38rem' }}>
-            Not theoretical experience — we have shipped actual products across these industries.
-          </p>
+    <section id="industries" className="sec dash-bottom" style={{ background: 'var(--bg)' }}>
+      <div className="frame frame-pad">
+        <div className="sec-hd reveal">
+          <h2>Industries We Serve</h2>
+          <p>Not theoretical experience — we&apos;ve shipped real products across these sectors.</p>
         </div>
 
-        <div style={{
-          display: 'grid', gap: '0.75rem',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-        }}>
+        <div style={{ borderTop: '1px dashed var(--line-dash)' }}>
           {industries.map((ind, i) => (
-            <div
-              key={ind.name}
-              className="reveal-scale"
-              style={{
-                transitionDelay: `${i * 0.07}s`,
-                padding: '1.75rem',
-                background: 'rgba(255,255,255,0.025)',
-                border: `1px solid ${ind.featured ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.07)'}`,
-                borderRadius: '14px',
-                transition: 'border-color 0.25s, background 0.25s, transform 0.25s',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = ind.featured ? 'rgba(59,130,246,0.4)' : 'rgba(255,255,255,0.15)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = ind.featured ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.07)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.025)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.625rem' }}>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: '#f0f4ff' }}>
-                  {ind.name}
+            <div key={ind.name} className="ind-row-item reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '40px 1fr auto', gap: '1.25rem', alignItems: 'start' }}>
+                <span style={{ fontSize: '0.6875rem', fontWeight: 700, fontFamily: 'monospace', color: 'var(--ink-3)', paddingTop: '0.25rem' }}>{ind.num}</span>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', marginBottom: '0.375rem' }}>
+                    <h3 style={{ fontSize: 'clamp(1.0625rem, 2vw, 1.25rem)', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.2 }}>{ind.name}</h3>
+                    {ind.featured && <span className="tag-accent tag">Primary</span>}
+                  </div>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--ink-2)', lineHeight: 1.65, margin: 0, maxWidth: '46rem' }}>{ind.desc}</p>
                 </div>
-                {ind.featured && (
-                  <span style={{
-                    fontSize: '0.5625rem', fontWeight: 600, letterSpacing: '0.08em',
-                    textTransform: 'uppercase', color: 'rgba(240,244,255,0.3)',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '4px', padding: '0.125rem 0.4rem',
-                  }}>
-                    Primary
-                  </span>
-                )}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-3)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: '0.25rem', flexShrink: 0 }}>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </div>
-              <p style={{ fontSize: '0.875rem', color: 'rgba(240,244,255,0.38)', lineHeight: 1.75, margin: 0 }}>
-                {ind.desc}
-              </p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
