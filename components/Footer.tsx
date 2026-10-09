@@ -54,7 +54,7 @@ export default function Footer() {
             <h4 style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-3)', marginBottom: '1.25rem' }}>Contact</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               {[
-                { label: 'Email', value: 'hello@nexxradigitals.com' },
+                { label: 'Email', value: 'hey@nexxradigitals.com' },
                 { label: 'Phone', value: '+234 811 026 8093' },
                 { label: 'Location', value: 'Abuja, FCT, Nigeria' },
               ].map(item => (

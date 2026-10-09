@@ -170,7 +170,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div style={{ padding: '1.5rem 2rem 3rem', flexShrink: 0, display: 'flex', justifyContent: 'space-between', color: 'var(--ink-3)', fontSize: '0.8125rem' }}>
-          <span>hello@nexxradigitals.com</span>
+          <span>hey@nexxradigitals.com</span>
           <span>Abuja, Nigeria</span>
         </div>
       </div>

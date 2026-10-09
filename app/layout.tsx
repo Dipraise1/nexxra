@@ -114,7 +114,7 @@ export default function RootLayout({
                 "alternateName": "Nexxra Digital Technologies",
                 "description": "CAC-registered web development and tech company in Abuja, Nigeria. We build websites, mobile apps, SaaS platforms, and business automation systems for Nigerian businesses.",
                 "url": "https://www.nexxradigitals.com",
-                "email": "hello@nexxradigitals.com",
+                "email": "hey@nexxradigitals.com",
                 "telephone": "+2348110268093",
                 "foundingDate": "2025",
                 "identifier": [
@@ -122,7 +122,7 @@ export default function RootLayout({
                   { "@type": "PropertyValue", "propertyID": "TIN", "name": "Tax Identification Number", "value": "2623718314591" }
                 ],
                 "address": { "@type": "PostalAddress", "addressLocality": "Abuja", "addressRegion": "Federal Capital Territory", "addressCountry": "NG" },
-                "contactPoint": { "@type": "ContactPoint", "telephone": "+2348110268093", "contactType": "sales", "email": "hello@nexxradigitals.com", "areaServed": "NG", "availableLanguage": ["en"] },
+                "contactPoint": { "@type": "ContactPoint", "telephone": "+2348110268093", "contactType": "sales", "email": "hey@nexxradigitals.com", "areaServed": "NG", "availableLanguage": ["en"] },
                 "geo": { "@type": "GeoCoordinates", "latitude": 9.0765, "longitude": 7.3986 },
                 "openingHoursSpecification": [
                   { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },

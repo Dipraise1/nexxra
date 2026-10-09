@@ -17,7 +17,7 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
       <footer className="dash-top">
         <div className="container-center" style={{ padding: '1.5rem 0', display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'space-between', fontSize: '0.8125rem', color: 'var(--ink-3)' }}>
           <span>© {new Date().getFullYear()} Nexxra Tech Innovations Limited</span>
-          <span>hello@nexxradigitals.com · +234 811 026 8093</span>
+          <span>hey@nexxradigitals.com · +234 811 026 8093</span>
         </div>
       </footer>
     </div>
