@@ -75,9 +75,14 @@ export default function CTA() {
               <p style={{ fontSize: '1.0625rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, maxWidth: '34rem', margin: '0 auto 2.25rem' }}>
                 Whether it&apos;s a website, app, or complete brand experience — we&apos;ll bring your ideas to life with precision and purpose.
               </p>
-              <a href="#contact" className="btn-light" style={{ minHeight: '52px', padding: '0 2.25rem' }}>
-                Start Your Project
-              </a>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+                <a href="/book" className="btn-light" style={{ minHeight: '52px', padding: '0 2.25rem' }}>
+                  Book a free call
+                </a>
+                <a href="#contact" style={{ minHeight: '52px', padding: '0 2.25rem', display: 'inline-flex', alignItems: 'center', borderRadius: '9999px', border: '1px solid rgba(255,255,255,0.25)', color: '#fff', fontSize: '0.9rem', fontWeight: 600 }}>
+                  Start Your Project
+                </a>
+              </div>
             </div>
           </div>
         </div>

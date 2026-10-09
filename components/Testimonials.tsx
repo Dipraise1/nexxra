@@ -1,5 +1,7 @@
 'use client';
 
+import CopyReviewLink from '@/components/forms/CopyReviewLink';
+
 const testimonials = [
   { name: 'Emeka Okonkwo',   role: 'CEO, PrimeProperties Abuja',      text: "The property portal they built generates qualified leads every day. I wasn't expecting that level of quality from a local team — I was wrong to doubt it.", initials: 'EO' },
   { name: 'Fatima Al-Hassan', role: 'Founder, CapitalEdge Fintech',    text: "Delivered on time, within budget, and the team actually communicated throughout. That alone puts them ahead of every other agency I've worked with.", initials: 'FA' },
@@ -45,8 +47,9 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="reveal" style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <a href="#contact" className="btn-primary">See All Reviews</a>
+        <div className="reveal" style={{ textAlign: 'center', marginTop: '3rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+          <a href="/review" className="btn-primary">Worked with us? Leave a review</a>
+          <CopyReviewLink />
         </div>
       </div>
     </section>

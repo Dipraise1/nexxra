@@ -111,8 +111,8 @@ export default function Navbar() {
 
           {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
-            <a href="#contact" className="btn-primary show-md" style={{ minHeight: '40px', padding: '0 1.375rem', fontSize: '0.8125rem' }}>
-              Contact
+            <a href="/book" className="btn-primary show-md" style={{ minHeight: '40px', padding: '0 1.375rem', fontSize: '0.8125rem' }}>
+              Book a call
             </a>
 
             {/* Hamburger — mobile */}
@@ -150,7 +150,7 @@ export default function Navbar() {
       >
         <div style={{ height: '4.5rem', flexShrink: 0 }} />
         <nav style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 2rem' }}>
-          {[...links, { label: 'Contact', href: '#contact' }].map((l, i) => (
+          {[...links, { label: 'Contact', href: '#contact' }, { label: 'Book a call', href: '/book' }].map((l, i) => (
             <a
               key={l.href}
               href={l.href}

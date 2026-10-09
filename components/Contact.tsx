@@ -18,12 +18,24 @@ const labelStyle: React.CSSProperties = {
 };
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '', website: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true); setError('');
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error);
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error && err.message ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -108,9 +120,17 @@ export default function Contact() {
                   <textarea required className="form-input" placeholder="Tell us about your project, goals, and any specific requirements..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', minHeight: '52px' }}>
-                  Send Message
+                <input tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} style={{ position: 'absolute', left: '-9999px', width: 1, height: 1 }} />
+
+                {error && <p role="alert" style={{ fontSize: '0.875rem', color: '#dc2626' }}>{error}</p>}
+
+                <button type="submit" disabled={sending} className="btn-primary" style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', minHeight: '52px', opacity: sending ? 0.7 : 1 }}>
+                  {sending ? 'Sending…' : 'Send Message'}
                 </button>
+
+                <a href="/book" style={{ fontSize: '0.875rem', color: 'var(--ink-2)', textAlign: 'center', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                  Prefer to talk? Book a free 30-min call →
+                </a>
 
                 <p style={{ fontSize: '0.75rem', color: 'var(--ink-3)', textAlign: 'center' }}>We never share your data.</p>
               </form>

@@ -34,7 +34,7 @@ export default function Process() {
         </div>
 
         <div className="reveal" style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <a href="#contact" className="btn-primary">Book a free call</a>
+          <a href="/book" className="btn-primary">Book a free call</a>
         </div>
       </div>
     </section>
