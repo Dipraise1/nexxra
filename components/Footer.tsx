@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const services = ['Website Development', 'Mobile Apps', 'SaaS Development', 'Business Automation', 'Real Estate Tech', 'Digital Marketing'];
 const company = [
   { label: 'About',        href: '#about' },
@@ -17,7 +19,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="reveal" style={{ maxWidth: '280px' }}>
-            <img src="/logo-dark.png" alt="Nexxra Digital" style={{ height: '34px', width: 'auto', display: 'block', marginBottom: '1.125rem' }} />
+            <Image src="/logo-dark.png" alt="Nexxra Digital" width={1536} height={1024} sizes="52px" style={{ height: '34px', width: 'auto', display: 'block', marginBottom: '1.125rem' }} />
             <p style={{ fontSize: '0.875rem', color: 'var(--ink-2)', lineHeight: 1.7 }}>
               From pixels to production — an Abuja-based tech company building digital products for Nigerian businesses.
             </p>

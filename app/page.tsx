@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
+import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Industries from '@/components/Industries';
 import PhotoStrip from '@/components/PhotoStrip';
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Projects />
         <Services />
         <About />
         <Industries />

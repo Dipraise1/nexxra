@@ -1,14 +1,14 @@
 'use client';
 
 const services = [
-  { icon: '/services/website.gif',    bg: 'linear-gradient(160deg,#eef2ff,#dbe4ff)', title: 'Website Development',    desc: 'Modern, high-converting websites — from landing pages to full corporate portals.' },
-  { icon: '/services/design.gif',     bg: 'linear-gradient(160deg,#fce7ff,#f0e0ff)', title: 'UI/UX Design',           desc: 'Intuitive, engaging interfaces that blend creativity with conversion-focused functionality.' },
-  { icon: '/services/mobile.gif',     bg: 'linear-gradient(160deg,#e0f2fe,#dbeafe)', title: 'Mobile App Development', desc: 'iOS and Android apps with native performance, polished design, and a backend that scales.' },
-  { icon: '/services/realestate.gif', bg: 'linear-gradient(160deg,#dcfce7,#cdeee0)', title: 'Real Estate Solutions',  desc: 'Property portals, agent CRMs, and lead generation built for the Nigerian market.' },
-  { icon: '/services/saas.gif',       bg: 'linear-gradient(160deg,#fff1e6,#ffe4cc)', title: 'SaaS Development',       desc: 'Multi-tenant products with billing, dashboards, and cloud architecture that scales.' },
-  { icon: '/services/ecommerce.gif',  bg: 'linear-gradient(160deg,#ffe4e6,#fdd3da)', title: 'E-Commerce',             desc: 'Online stores and marketplaces with secure payments and a checkout that converts.' },
-  { icon: '/services/automation.gif', bg: 'linear-gradient(160deg,#e6e9ff,#e7defb)', title: 'Business Automation',    desc: 'Automate workflows and integrations to eliminate slow, repetitive manual work.' },
-  { icon: '/services/marketing.gif',  bg: 'linear-gradient(160deg,#d6faf3,#cdf3f7)', title: 'Digital Marketing',      desc: 'SEO, paid ads, and content that grows your traffic and turns it into real revenue.' },
+  { icon: '/services/website.mp4',    bg: 'linear-gradient(160deg,#eef2ff,#dbe4ff)', title: 'Website Development',    desc: 'Modern, high-converting websites — from landing pages to full corporate portals.' },
+  { icon: '/services/design.mp4',     bg: 'linear-gradient(160deg,#fce7ff,#f0e0ff)', title: 'UI/UX Design',           desc: 'Intuitive, engaging interfaces that blend creativity with conversion-focused functionality.' },
+  { icon: '/services/mobile.mp4',     bg: 'linear-gradient(160deg,#e0f2fe,#dbeafe)', title: 'Mobile App Development', desc: 'iOS and Android apps with native performance, polished design, and a backend that scales.' },
+  { icon: '/services/realestate.mp4', bg: 'linear-gradient(160deg,#dcfce7,#cdeee0)', title: 'Real Estate Solutions',  desc: 'Property portals, agent CRMs, and lead generation built for the Nigerian market.' },
+  { icon: '/services/saas.mp4',       bg: 'linear-gradient(160deg,#fff1e6,#ffe4cc)', title: 'SaaS Development',       desc: 'Multi-tenant products with billing, dashboards, and cloud architecture that scales.' },
+  { icon: '/services/ecommerce.mp4',  bg: 'linear-gradient(160deg,#ffe4e6,#fdd3da)', title: 'E-Commerce',             desc: 'Online stores and marketplaces with secure payments and a checkout that converts.' },
+  { icon: '/services/automation.mp4', bg: 'linear-gradient(160deg,#e6e9ff,#e7defb)', title: 'Business Automation',    desc: 'Automate workflows and integrations to eliminate slow, repetitive manual work.' },
+  { icon: '/services/marketing.mp4',  bg: 'linear-gradient(160deg,#d6faf3,#cdf3f7)', title: 'Digital Marketing',      desc: 'SEO, paid ads, and content that grows your traffic and turns it into real revenue.' },
 ];
 
 export default function Services() {
@@ -27,11 +27,14 @@ export default function Services() {
               {/* Full-bleed animated media panel with number chip + wavy divider */}
               <div style={{ position: 'relative', aspectRatio: '16 / 11', background: svc.bg, overflow: 'hidden' }}>
                 <span className="svc-chip" style={{ zIndex: 2 }}>{String(i + 1).padStart(2, '0')}</span>
-                <img
+                <video
                   src={svc.icon}
-                  alt={svc.title}
-                  loading="lazy"
-                  decoding="async"
+                  aria-label={`${svc.title} illustration`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
                   className="svc-img"
                   style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', zIndex: 0 }}
                 />

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const rotatingWords = ['Fast', 'Scalable', 'Reliable', 'Beautiful'];
 
@@ -56,13 +57,13 @@ export default function Hero() {
       }} />
 
       <div className="frame frame-pad dash-bottom" style={{ position: 'relative', zIndex: 1, paddingTop: '1rem', paddingBottom: '4.5rem' }}>
-        <div style={{
+        <div className="hero-inner" style={{
           display: 'flex', flexDirection: 'column', alignItems: 'center',
           textAlign: 'center', maxWidth: '46rem', margin: '0 auto',
         }}>
 
           {/* Trust pill */}
-          <div className="fade-in-up" style={{
+          <div className="fade-in-up hero-trust" style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.625rem',
             padding: '0.3rem 0.875rem 0.3rem 0.4rem',
             background: 'var(--surface)', border: '1px solid var(--line)',
@@ -71,10 +72,12 @@ export default function Hero() {
           }}>
             <div style={{ display: 'flex' }}>
               {avatars.map((src, i) => (
-                <img
+                <Image
                   key={i}
                   src={src}
                   alt=""
+                  width={24}
+                  height={24}
                   style={{
                     width: '24px', height: '24px', borderRadius: '50%',
                     objectFit: 'cover', border: '2px solid #fff',
@@ -106,15 +109,16 @@ export default function Hero() {
             fontSize: '1.0625rem', color: 'var(--ink-2)', lineHeight: 1.7,
             width: '100%', maxWidth: '30rem', marginBottom: '2.25rem',
           }}>
-            Helping Nigerian businesses grow with clean code,
-            scalable products, and design that performs.
+            We design and engineer websites, apps, and digital products
+            that turn ambitious ideas into dependable businesses.
           </p>
 
           {/* CTA + socials */}
           <div className="fade-in-up delay-300" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-            <a href="#contact" className="btn-primary" style={{ minHeight: '52px', padding: '0 2.25rem', fontSize: '0.95rem' }}>
-              Start Your Project
-            </a>
+            <div className="hero-actions">
+              <a href="#contact" className="btn-primary" style={{ minHeight: '52px', padding: '0 2.25rem', fontSize: '0.95rem' }}>Start Your Project</a>
+              <a href="#work" className="btn-ghost" style={{ minHeight: '52px', padding: '0 2rem', fontSize: '0.95rem' }}>Explore our work</a>
+            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <span style={{ fontSize: '0.8125rem', color: 'var(--ink-3)', fontWeight: 500 }}>Follow us</span>
@@ -151,10 +155,13 @@ export default function Hero() {
         <div className="fade-in-up delay-400 hero-shot" style={{
           marginTop: 'clamp(2.5rem, 6vw, 4rem)',
         }}>
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&w=1400&q=80"
             alt="Software team collaborating in Abuja, Nigeria"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            style={{ objectFit: 'cover' }}
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 const stats = [
   { value: '48hr', label: 'Proposal Delivery' },
@@ -96,11 +97,12 @@ export default function About() {
           <div className="reveal-right" style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem', transitionDelay: '0.12s' }}>
             <div className="about-media">
               <div style={{ position: 'relative', zIndex: 1, borderRadius: '18px', overflow: 'hidden', height: '240px', border: '1px solid var(--line)', boxShadow: 'var(--shadow-pop)' }}>
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1573164574397-dd250bc8a598?auto=format&fit=crop&w=1100&q=80"
                   alt="Nexxra Digital team, Abuja Nigeria"
-                  loading="lazy" decoding="async"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 512px"
+                  style={{ objectFit: 'cover' }}
                 />
                 <div style={{ position: 'absolute', bottom: '1rem', left: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.92)', padding: '0.375rem 0.75rem', borderRadius: '9999px', boxShadow: 'var(--shadow-card)' }}>
                   <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />

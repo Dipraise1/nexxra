@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const links = [
   { label: 'Home',     href: '#home' },
+  { label: 'Work',     href: '#work' },
   { label: 'Services', href: '#services' },
   { label: 'About',    href: '#about' },
   { label: 'Process',  href: '#process' },
@@ -94,7 +96,7 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <a href="#home" onClick={closeMenu} style={{ flexShrink: 0, zIndex: 110, position: 'relative' }}>
-            <img src="/logo-dark.png" alt="Nexxra Digital" style={{ height: '46px', width: 'auto', display: 'block' }} />
+            <Image src="/logo-dark.png" alt="Nexxra Digital" width={1536} height={1024} priority sizes="70px" style={{ height: '46px', width: 'auto', display: 'block' }} />
           </a>
 
           {/* Center links — desktop */}
