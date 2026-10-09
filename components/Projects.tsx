@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const projects = [
   {
     name: 'WayaTix',
@@ -29,13 +31,16 @@ function ProjectVisual({ theme }: { theme: string }) {
   if (theme === 'sawa') {
     return (
       <div className="project-visual project-visual-sawa" aria-hidden="true">
-        <div className="phone-shell">
-          <div className="phone-top"><span>9:41</span><span>● ●</span></div>
-          <div className="sawa-mark">S</div>
-          <p className="phone-kicker">AVAILABLE BALANCE</p>
-          <strong>$2,480.60</strong>
-          <div className="phone-actions"><span>↑</span><span>↓</span><span>↔</span></div>
-          <div className="transfer-card"><span>Sent to Ada</span><b>− $50.00</b></div>
+        <div className="sawa-phone-shell">
+          <div className="sawa-screen">
+            <Image
+              src="/sawa-dashboard.webp"
+              alt="Sawa Wallet mobile dashboard"
+              fill
+              sizes="260px"
+              className="sawa-dashboard"
+            />
+          </div>
         </div>
         <span className="visual-label">Send money like a text.</span>
       </div>

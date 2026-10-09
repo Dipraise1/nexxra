@@ -383,8 +383,9 @@ button { font-family: inherit; cursor: pointer; }
 .event-card strong { display:block; font-size:clamp(1.7rem,5vw,3rem); line-height:1; margin:.5rem 0; }.event-card p{font-size:.8rem;color:rgba(255,255,255,.7)}
 .ticket-code { grid-column:1/-1;border-top:1px dashed rgba(255,255,255,.3);padding-top:1rem;letter-spacing:.25rem;opacity:.7;}
 .project-visual-sawa { background: radial-gradient(circle at 20% 10%,#f5c96b 0,transparent 34%),linear-gradient(145deg,#385747,#0b1712 70%); }
-.phone-shell { z-index:2; width:220px; height:370px; border-radius:34px 34px 0 0; background:#f6f2e8; color:#19251f; padding:1.2rem; transform:translateY(35px) rotate(3deg); box-shadow:0 30px 80px rgba(0,0,0,.45); border:6px solid #1b1c1b; }
-.phone-top { display:flex;justify-content:space-between;font-size:.55rem;font-weight:700;margin-bottom:1.4rem}.sawa-mark{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#e4bd5d;font-weight:900}.phone-kicker{font-size:.55rem;letter-spacing:.12em;margin:1.5rem 0 .25rem;color:#6d756f}.phone-shell>strong{font-size:1.75rem}.phone-actions{display:flex;justify-content:space-between;margin:1.4rem 0}.phone-actions span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#193d2d;color:#fff}.transfer-card{display:flex;justify-content:space-between;padding:1rem .8rem;background:#fff;border-radius:14px;font-size:.65rem}.transfer-card b{color:#b64040}
+.sawa-phone-shell { z-index:2; width:244px; height:448px; border-radius:38px 38px 0 0; padding:7px; background:#111; transform:translateY(46px) rotate(2.25deg); box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.sawa-screen { position:relative; width:100%; height:100%; border-radius:31px 31px 0 0; overflow:hidden; background:#fff; }
+.sawa-dashboard { object-fit:cover; object-position:top left; transform:scale(1.035); transform-origin:top left; }
 .project-copy { padding: 1.5rem; display:grid; gap:1.5rem; color:#fff; }
 .project-number { color:rgba(255,255,255,.3);font-size:.75rem;letter-spacing:.12em }.project-kicker{color:#8ea3ff;font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700}.project-main h3{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);margin:.35rem 0 .75rem}.project-description{color:rgba(255,255,255,.58);line-height:1.7;max-width:610px}.project-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}.project-tags span{border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.35rem .7rem;font-size:.65rem;color:rgba(255,255,255,.64)}
 .project-link{display:inline-flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem;font-size:.82rem;font-weight:700}.project-link svg{transition:transform .2s}.project-link:hover svg{transform:translate(3px,-3px)}
@@ -394,7 +395,7 @@ button { font-family: inherit; cursor: pointer; }
   .word-rotator { display: grid; margin-top: .12em; }
   .hero-trust { padding-right: .65rem !important; gap: .45rem !important; }
   .hero-trust span { font-size: .68rem !important; white-space: nowrap; }
-  .hero-actions{width:100%}.hero-actions a{width:100%}.project-visual{min-height:330px}.event-card{width:88%;min-height:190px;padding:1.2rem}.event-card strong{font-size:1.65rem}
+  .hero-actions{width:100%}.hero-actions a{width:100%}.project-visual{min-height:330px}.event-card{width:88%;min-height:190px;padding:1.2rem}.event-card strong{font-size:1.65rem}.sawa-phone-shell{width:210px;height:385px;transform:translateY(42px) rotate(2deg)}
 }
 
 /* light pill on dark backgrounds */
