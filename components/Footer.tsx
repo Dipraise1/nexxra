@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { SLUG_BY_NAME } from '@/lib/services';
 
 const services = ['Website Development', 'Mobile Apps', 'SaaS Development', 'Business Automation', 'Real Estate Tech', 'Digital Marketing'];
 const company = [
@@ -9,6 +10,9 @@ const company = [
   { label: 'Industries',   href: '#industries' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact',      href: '#contact' },
+  { label: 'All services', href: '/services' },
+  { label: 'Guides',       href: '/guides' },
+  { label: 'Book a call',  href: '/book' },
 ];
 
 export default function Footer() {
@@ -30,7 +34,7 @@ export default function Footer() {
             <h4 style={{ fontSize: '0.625rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-3)', marginBottom: '1.25rem' }}>Services</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               {services.map(s => (
-                <a key={s} href="#services" style={{ fontSize: '0.875rem', color: 'var(--ink-2)', transition: 'color 0.2s' }}
+                <a key={s} href={`/services/${SLUG_BY_NAME[s]}`} style={{ fontSize: '0.875rem', color: 'var(--ink-2)', transition: 'color 0.2s' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'var(--ink)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--ink-2)')}>{s}</a>
               ))}

@@ -925,3 +925,8 @@ textarea.form-input {
    QUOTE MARK ACCENT (Testimonials)
    ======================================== */
 .quote-accent { position: relative; overflow: hidden; }
+
+/* Service card title links: whole card is clickable via the stretched link. */
+.svc-link { color: inherit; }
+.svc-link::after { content: ''; position: absolute; inset: 0; z-index: 3; }
+.svc-link:hover { color: var(--accent); }

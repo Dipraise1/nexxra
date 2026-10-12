@@ -10,7 +10,12 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
           <Link href="/" aria-label="Nexxra Digital home">
             <Image src="/logo-dark.png" alt="Nexxra Digital" width={1536} height={1024} priority sizes="70px" style={{ height: '46px', width: 'auto', display: 'block' }} />
           </Link>
-          <Link href="/" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--ink-2)' }}>← Back to site</Link>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.75rem, 3vw, 1.5rem)', fontSize: '0.875rem', fontWeight: 500 }}>
+            <Link href="/services" style={{ color: 'var(--ink-2)' }}>Services</Link>
+            <Link href="/guides" className="show-md" style={{ color: 'var(--ink-2)' }}>Guides</Link>
+            <Link href="/#work" className="show-md" style={{ color: 'var(--ink-2)' }}>Work</Link>
+            <Link href="/book" className="btn-primary" style={{ minHeight: '38px', padding: '0 1.1rem', fontSize: '0.8125rem' }}>Book a call</Link>
+          </nav>
         </div>
       </header>
       <main style={{ flex: 1 }}>{children}</main>

@@ -1,5 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+import { SLUG_BY_NAME } from '@/lib/services';
+
 const services = [
   { icon: '/services/website.mp4',    bg: 'linear-gradient(160deg,#eef2ff,#dbe4ff)', title: 'Website Development',    desc: 'Modern, high-converting websites — from landing pages to full corporate portals.' },
   { icon: '/services/design.mp4',     bg: 'linear-gradient(160deg,#fce7ff,#f0e0ff)', title: 'UI/UX Design',           desc: 'Intuitive, engaging interfaces that blend creativity with conversion-focused functionality.' },
@@ -44,7 +47,9 @@ export default function Services() {
               </div>
 
               <div style={{ padding: '0.7rem 1.25rem 1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.4rem' }}>{svc.title}</h3>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.3, marginBottom: '0.4rem' }}>
+                  <Link href={`/services/${SLUG_BY_NAME[svc.title]}`} className="svc-link">{svc.title}</Link>
+                </h3>
                 <p style={{ fontSize: '0.85rem', color: 'var(--ink-2)', lineHeight: 1.6, margin: 0 }}>{svc.desc}</p>
               </div>
             </div>
