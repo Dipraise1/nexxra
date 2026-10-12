@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { SLUG_BY_NAME } from '@/lib/services';
 
-const services = ['Website Development', 'Mobile Apps', 'SaaS Development', 'Business Automation', 'Real Estate Tech', 'Digital Marketing'];
+const services = ['Website Development', 'Mobile Apps', 'SaaS Development', 'Blockchain Development', 'Business Automation', 'Real Estate Tech', 'Digital Marketing'];
 const company = [
   { label: 'About',        href: '#about' },
   { label: 'Process',      href: '#process' },

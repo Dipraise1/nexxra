@@ -138,6 +138,7 @@ export default function RootLayout({
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development", "description": "iOS and Android apps built with React Native and Flutter." } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SaaS Development", "description": "Multi-tenant SaaS platforms with billing, dashboards, and cloud infrastructure." } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Real Estate Software", "description": "Property portals, agent CRM, and lead generation for the Nigerian market." } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blockchain Development", "description": "Crypto wallets, smart contracts, token launches, dApps and crypto payments on Solana and EVM chains." } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Automation", "description": "CRM automation, workflow automation, and API integrations." } },
                     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing", "description": "SEO, PPC, social media strategy for Nigerian businesses." } }
                   ]

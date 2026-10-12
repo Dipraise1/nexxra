@@ -63,7 +63,9 @@ export default async function ServicePage({ params }: Props) {
               </div>
             </div>
             <div className="card" style={{ padding: 0, overflow: 'hidden', borderRadius: '22px', aspectRatio: '16 / 11' }}>
-              <video src={s.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              {s.video
+                ? <video src={s.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                : <img src={s.image} alt={`${s.name} by Nexxra Digital`} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />}
             </div>
           </div>
         </div>

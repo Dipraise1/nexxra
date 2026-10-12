@@ -191,6 +191,7 @@ export default function BookingForm() {
           <option>SaaS Development</option>
           <option>Business Automation</option>
           <option>Digital Marketing</option>
+          <option>Blockchain / Web3</option>
           <option>Not sure yet</option>
         </select>
       </div>

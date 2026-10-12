@@ -25,7 +25,9 @@ export default function ServicesPage() {
           <div className="g-2" style={{ alignItems: 'stretch' }}>
             {SERVICES.map((s) => (
               <Link key={s.slug} href={`/services/${s.slug}`} className="card" style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-                <video src={s.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" style={{ width: '96px', height: '96px', objectFit: 'cover', borderRadius: '14px', flexShrink: 0 }} />
+                {s.video
+                  ? <video src={s.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" style={{ width: '96px', height: '96px', objectFit: 'cover', borderRadius: '14px', flexShrink: 0 }} />
+                  : <img src={s.image} alt="" aria-hidden="true" style={{ width: '96px', height: '96px', objectFit: 'cover', objectPosition: 'top', borderRadius: '14px', flexShrink: 0 }} />}
                 <div>
                   <h2 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.35rem' }}>{s.h1}</h2>
                   <p style={{ fontSize: '0.875rem', color: 'var(--ink-2)', lineHeight: 1.6 }}>{s.metaDescription}</p>

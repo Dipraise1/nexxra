@@ -10,7 +10,8 @@ export type Service = {
   metaTitle: string;     // rendered through the "%s | Nexxra Digital" template
   metaDescription: string;
   keywords: string[];
-  video: string;
+  video?: string;       // animated card media…
+  image?: string;       // …or a still, when there is no video
   intro: string[];
   includes: { title: string; text: string }[];
   forWho: string[];
@@ -279,6 +280,39 @@ export const SERVICES: Service[] = [
     ],
     related: ['website-development-abuja', 'ecommerce-website-development-nigeria', 'real-estate-website-development-nigeria'],
   },
+  {
+    slug: 'blockchain-development-nigeria',
+    name: 'Blockchain Development',
+    h1: 'Blockchain Development Company in Nigeria',
+    metaTitle: 'Blockchain & Web3 Development Company in Abuja, Nigeria',
+    metaDescription:
+      'Crypto wallets, smart contracts, token launches, dApps and crypto payment integrations on Solana, Ethereum and BNB Chain — built by a CAC-registered team in Abuja.',
+    keywords: ['blockchain development Nigeria', 'blockchain developers Abuja', 'web3 development Nigeria', 'smart contract developer Nigeria', 'crypto wallet development Nigeria', 'Solana developer Nigeria', 'dApp development Nigeria'],
+    image: '/sawa-dashboard.webp',
+    intro: [
+      'Blockchain products live or die on two things: security and simplicity. Users need to trust that their funds are safe, and they will not put up with seed-phrase confusion, failed transactions or fees they don’t understand.',
+      'Nexxra Digital builds blockchain products end to end — wallets, smart contracts, token and presale platforms, dApps and crypto payment flows — with the same focus on clean, phone-first design we bring to every app. We built Sawa Wallet, a non-custodial wallet that makes sending crypto feel as familiar as sending a text.',
+    ],
+    includes: [
+      { title: 'Crypto wallets', text: 'Non-custodial mobile and web wallets with simple onboarding, multi-chain balances, send and receive, swaps and transaction history.' },
+      { title: 'Smart contracts', text: 'Tokens, vesting, staking, escrow and presale contracts on Solana (Anchor/Rust) and EVM chains (Solidity), with thorough tests.' },
+      { title: 'Token and presale platforms', text: 'Launch pages, presale and claim portals, airdrop tooling and investor dashboards that show exactly what each wallet holds.' },
+      { title: 'dApps and dashboards', text: 'Web apps that connect to Phantom, MetaMask and WalletConnect, read on-chain data in real time and keep the experience fast.' },
+      { title: 'Crypto payments and ramps', text: 'Accept stablecoins, add crypto checkout to your product, or connect to on/off-ramp partners so users move between naira and crypto.' },
+      { title: 'Security first', text: 'Code reviews, test suites and safe key management throughout — and we prepare your contracts for an independent audit before launch.' },
+    ],
+    forWho: ['Founders building a wallet, exchange or fintech product', 'Projects launching a token, presale or community airdrop', 'Businesses adding crypto or stablecoin payments', 'Teams that need a dApp or on-chain dashboard'],
+    stack: ['Solana', 'Anchor / Rust', 'Ethereum & EVM', 'Solidity', 'BNB Chain', 'React Native', 'Next.js', 'Node.js'],
+    timeline: 'Smart contracts and launch pages can ship in 2–4 weeks; wallets and full platforms typically take 6–12 weeks.',
+    faqs: [
+      { q: 'Which blockchains do you build on?', a: 'Mainly Solana and EVM chains — Ethereum, BNB Chain, Base and other L2s. We recommend the chain that fits your users, fees and ecosystem.' },
+      { q: 'Can you build a crypto wallet app?', a: 'Yes. We build non-custodial mobile and web wallets with simple onboarding, multi-chain support, swaps and clear transaction history — Sawa Wallet is one we have shipped.' },
+      { q: 'Do you write and test smart contracts?', a: 'Yes — tokens, vesting, staking, escrow and presale contracts in Rust (Anchor) and Solidity, with full test coverage. For contracts that will hold significant funds we strongly recommend an independent audit, and we prepare the code for it.' },
+      { q: 'Can you launch a token or presale?', a: 'We build the contracts, the presale or claim site and the dashboards. You remain responsible for tokenomics and for legal and regulatory advice in your markets, which we always recommend getting.' },
+      { q: 'Can my business accept crypto payments?', a: 'Yes. We can add stablecoin or crypto checkout to your website or app, and integrate with on/off-ramp partners so customers can pay in naira or crypto.' },
+    ],
+    related: ['mobile-app-development-nigeria', 'saas-development-nigeria', 'ui-ux-design-nigeria'],
+  },
 ];
 
 export const serviceBySlug = (slug: string) => SERVICES.find((s) => s.slug === slug);
@@ -295,4 +329,5 @@ export const SLUG_BY_NAME: Record<string, string> = {
   'E-Commerce': 'ecommerce-website-development-nigeria',
   'Business Automation': 'business-automation-nigeria',
   'Digital Marketing': 'digital-marketing-seo-abuja',
+  'Blockchain Development': 'blockchain-development-nigeria',
 };

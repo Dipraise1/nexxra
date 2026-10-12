@@ -21,7 +21,7 @@ export default function Services() {
         <div className="sec-hd reveal" style={{ maxWidth: '44rem' }}>
           <span className="eyebrow" style={{ justifyContent: 'center' }}><span className="dot" /> What we do</span>
           <h2>What We Offer</h2>
-          <p>From concept to code, we craft functional, high-performing websites, apps, and platforms — eight ways we help you grow.</p>
+          <p>From concept to code, we craft functional, high-performing websites, apps, and platforms — nine ways we help you grow.</p>
         </div>
 
         <div className="g-4" style={{ gap: '1.5rem' }}>
@@ -55,6 +55,15 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        <Link href="/services/blockchain-development-nigeria" className="reveal card" style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', padding: '1.25rem 1.5rem', borderRadius: '20px', background: 'linear-gradient(120deg,#0b0b0d,#1d1440 60%,#3a2a8a)', color: '#fff', border: 'none' }}>
+          <div>
+            <div style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#a9b6ff', marginBottom: '0.35rem' }}>09 · New</div>
+            <div style={{ fontSize: '1.15rem', fontWeight: 700 }}>Blockchain &amp; Web3 Development</div>
+            <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.65)', marginTop: '0.25rem' }}>Crypto wallets, smart contracts, token launches and dApps on Solana, Ethereum and BNB Chain.</div>
+          </div>
+          <span style={{ fontSize: '0.875rem', fontWeight: 600, whiteSpace: 'nowrap' }}>Explore →</span>
+        </Link>
       </div>
     </section>
   );
