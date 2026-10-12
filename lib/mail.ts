@@ -50,3 +50,17 @@ export function field(v: unknown, max = 200) {
 }
 
 export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** Send an arbitrary email (e.g. an invoice to a client) from the company mailbox. */
+export async function sendMail(opts: { to: string; subject: string; html: string; text: string; replyTo?: string; attachments?: { filename: string; content: Buffer }[] }) {
+  await getTransporter().sendMail({
+    from: `"Nexxra Digital" <${SMTP_USER}>`,
+    to: opts.to,
+    replyTo: opts.replyTo ?? SMTP_USER,
+    bcc: MAIL_TO, // keep a copy of everything sent to clients
+    subject: opts.subject,
+    text: opts.text,
+    html: opts.html,
+    attachments: opts.attachments,
+  });
+}

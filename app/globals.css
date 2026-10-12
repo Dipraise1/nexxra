@@ -930,3 +930,13 @@ textarea.form-input {
 .svc-link { color: inherit; }
 .svc-link::after { content: ''; position: absolute; inset: 0; z-index: 3; }
 .svc-link:hover { color: var(--accent); }
+
+/* Invoices: print the document only, edge to edge on A4. */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff !important; }
+  .no-print { display: none !important; }
+  .invoice-doc { box-shadow: none !important; border-radius: 0 !important; }
+  .invoice-wrap { padding: 0 !important; max-width: none !important; }
+  .invoice-doc, .invoice-doc * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
